@@ -1,0 +1,91 @@
+<script lang="ts">
+  import type { KalimbaKeyBarsTypes } from "../../constants/KalimbaKey";
+
+  export let key: KalimbaKeyBarsTypes;
+  export const type: string = "c-key";
+</script>
+
+<style lang="scss">
+  @import "../../theme/colors.scss";
+
+  $keyWidth: 36;
+  $keyHeight: 240;
+
+  .Key {
+    width: #{$keyWidth}px;
+    min-height: #{$keyHeight}px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+
+    background: $white;
+    box-shadow: inset 0px -4px 7px $dark_gray;
+    border-bottom-left-radius: 18px;
+    border-bottom-right-radius: 18px;
+
+    color: $black;
+    font-weight: bold;
+
+    padding-bottom: 16px;
+    position: relative;
+
+    cursor: pointer;
+
+    &:hover {
+      background: linear-gradient(#eeeeee, #b7b7b7);
+      box-shadow: 0px 7px 7px darken($dark_gray, 20%);
+      color: $black;
+    }
+
+    &:not(:first-child) {
+      margin-left: 12px;
+    }
+
+    $increase: 20;
+    &.c-key {
+      $helf: 9;
+      @for $index from 1 through 17 {
+        &:nth-child(#{$index }) {
+          @if ($index < $helf + 1) {
+            height: #{($index - 1) * $increase + $keyHeight}px;
+          } @else {
+            height: #{$keyHeight +
+              ($increase * $helf) -
+              $increase *
+              ($index + 1 - $helf)}px;
+          }
+        }
+      }
+    }
+  }
+
+  @mixin octave {
+    position: absolute;
+    bottom: 56px;
+    width: #{$keyWidth}px;
+    left: 0;
+    text-align: center;
+  }
+
+  .codeName {
+    &2 {
+      &:before {
+        @include octave;
+        content: ":";
+      }
+    }
+
+    &1 {
+      &:before {
+        @include octave;
+        content: ".";
+      }
+    }
+  }
+</style>
+
+<div class="Key {type}">
+  <span class="codeName{key.higher}">{key.number}</span>
+  <span class="codeName">{key.code}</span>
+</div>
