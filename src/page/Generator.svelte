@@ -8,6 +8,16 @@
   @import "../theme/colors.scss";
 
   main {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .generator-section {
+    width: 100%;
+    max-width: 1192px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -15,7 +25,6 @@
 
   .kalimba-section {
     width: 100%;
-    max-width: 1192px;
 
     background-color: $dark_gray;
     display: flex;
@@ -26,9 +35,11 @@
 </style>
 
 <main>
-  <Sheet />
-  <section class="kalimba-section">
-    <Kalimba />
-    <SaveButton />
+  <section class="generator-section">
+    <Sheet />
+    <section class="kalimba-section">
+      <Kalimba />
+      <SaveButton />
+    </section>
   </section>
 </main>
