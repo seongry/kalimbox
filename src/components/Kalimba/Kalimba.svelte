@@ -8,6 +8,7 @@
 <style lang="scss">
   @import "../../theme/colors.scss";
   .kalimba {
+    flex: 1;
     position: relative;
     display: flex;
     justify-content: center;
