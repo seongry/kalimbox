@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Route, Router } from "svelte-routing";
-  import Generator from "./page/generator.svelte";
+  import Generator from "./page/Generator.svelte";
 </script>
 
 <Router>
