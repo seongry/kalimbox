@@ -18,7 +18,14 @@
 
   .title {
     border: none;
-    border-bottom: 1px solid $dark_gray;
+    border-bottom: 1px solid $gray100;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    outline: none;
+    &::placeholder {
+      color: $gray200;
+    }
   }
 </style>
 
