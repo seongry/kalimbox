@@ -1,4 +1,10 @@
-<script lang="ts"></script>
+<script lang="ts">
+  import { createSheet } from "../../store";
+
+  let title: string;
+
+  const sheet = createSheet();
+</script>
 
 <style lang="scss">
   @import "../../theme/colors.scss";
@@ -31,6 +37,14 @@
 
 <div class="sheet">
   <div class="title-box">
-    <input class="title" type="input" placeholder="악보 제목을 입력해주세요" />
+    <input
+      class="title"
+      type="input"
+      placeholder="악보 제목을 입력해주세요"
+      bind:value={title}
+      on:change={(e) => {
+        sheet.updateTitle(e.target);
+      }}
+    />
   </div>
 </div>
