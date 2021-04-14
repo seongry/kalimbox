@@ -39,7 +39,7 @@
     }
 
     &:not(:first-child) {
-      margin-left: 12px;
+      margin-left: 8px;
     }
 
     $increase: 20;

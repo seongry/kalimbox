@@ -23,13 +23,13 @@
     position: absolute;
     top: 40px;
 
-    height: 12px;
-    border-radius: 12px;
-    background-color: $white;
-    opacity: 0.34;
+    height: 20px;
+    border-radius: 20px;
+    background-color: $purple300;
+    box-shadow: 1px 4px 4px rgba(6, 16, 41, 0.13);
 
     &.c-key {
-      width: #{(17 * 36) + (16 * 12) + 36}px;
+      width: #{(17 * 36) + (16 * 8) + 80}px;
     }
   }
 </style>

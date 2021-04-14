@@ -26,7 +26,7 @@
   .kalimba-section {
     width: 100%;
 
-    background-color: $dark_gray;
+    background-color: $purple200;
     display: flex;
     flex-direction: column;
     justify-content: center;
