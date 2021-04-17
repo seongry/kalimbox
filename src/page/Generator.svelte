@@ -2,6 +2,15 @@
   import Kalimba from "../components/Kalimba/Kalimba.svelte";
   import SaveButton from "../components/SaveButton.svelte";
   import Sheet from "../components/Sheet/Sheet.svelte";
+  import type { SheetType } from "../store";
+  import { createSheet } from "../store";
+
+  let initailSheetData: SheetType = {
+    title: "",
+    notes: [],
+  };
+
+  const sheetStore = createSheet(initailSheetData);
 </script>
 
 <style lang="scss">
@@ -36,9 +45,9 @@
 
 <main>
   <section class="generator-section">
-    <Sheet />
+    <Sheet data={$sheetStore} updateTitle={sheetStore.updateTitle} />
     <section class="kalimba-section">
-      <Kalimba />
+      <Kalimba updateNotes={sheetStore.updateNotes} />
       <SaveButton />
     </section>
   </section>

@@ -1,9 +1,9 @@
 <script lang="ts">
-  import { createSheet } from "../../store";
+  import type { SheetType } from "../../store";
+  import Stave from "./Stave.svelte";
 
-  let title: string;
-
-  const sheet = createSheet();
+  export let data: SheetType;
+  export let updateTitle: (e: EventTarget) => void;
 </script>
 
 <style lang="scss">
@@ -33,6 +33,10 @@
       color: $gray200;
     }
   }
+
+  .stave-box {
+    padding-top: 12px;
+  }
 </style>
 
 <div class="sheet">
@@ -41,10 +45,13 @@
       class="title"
       type="input"
       placeholder="악보 제목을 입력해주세요"
-      bind:value={title}
+      bind:value={data.title}
       on:change={(e) => {
-        sheet.updateTitle(e.target);
+        updateTitle(e.target);
       }}
     />
+  </div>
+  <div class="stave-box">
+    <Stave notes={data.notes} />
   </div>
 </div>

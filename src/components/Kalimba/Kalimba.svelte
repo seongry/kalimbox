@@ -2,6 +2,8 @@
   import { C_KEY } from "../../constants/KalimbaKey";
   import Key from "./Key.svelte";
 
+  export let updateNotes: (note: string) => void;
+
   let kalimbaKeys = C_KEY;
 </script>
 
@@ -35,10 +37,10 @@
 </style>
 
 <div class="kalimba">
-  <div class="vibrating-bar {kalimbaKeys === C_KEY && 'c-key'}"></div>
+  <div class="vibrating-bar {kalimbaKeys === C_KEY && 'c-key'}" />
   <div class="keys">
     {#each kalimbaKeys as keyBar}
-      <Key key="{keyBar}" />
+      <Key key={keyBar} onHandleClick={updateNotes} />
     {/each}
   </div>
 </div>

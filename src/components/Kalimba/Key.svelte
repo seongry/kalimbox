@@ -3,6 +3,7 @@
 
   export let key: KalimbaKeyBarsTypes;
   export const type: string = "c-key";
+  export let onHandleClick: (note: string) => void;
 </script>
 
 <style lang="scss">
@@ -85,7 +86,12 @@
   }
 </style>
 
-<div class="Key {type}">
+<div
+  class="Key {type}"
+  on:click={() => {
+    onHandleClick(key.code);
+  }}
+>
   <span class="codeName{key.higher}">{key.number}</span>
   <span class="codeName">{key.code}</span>
 </div>
