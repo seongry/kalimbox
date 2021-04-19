@@ -792,7 +792,7 @@
     "@babel/types" "^7.4.4"
     esutils "^2.0.2"
 
-"@babel/runtime@^7.8.4":
+"@babel/runtime@^7.13.10", "@babel/runtime@^7.8.4":
   version "7.13.10"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.13.10.tgz#47d42a57b6095f4468da440388fdbad8bebf0d7d"
   integrity sha512-4QPkjJq6Ns3V/RgpEahRk+AGfL0eO6RHHtTWoNNr5mO49G6B5+X6d6THgWEAvTrznU5xYpbAlVKRYcsCgh/Akw==
@@ -1026,6 +1026,14 @@ asynckit@^0.4.0:
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/asynckit/-/asynckit-0.4.0.tgz#c79ed97f7f34cb8f2ba1bc9790bcc366474b4b79"
   integrity sha1-x57Zf380y48robyXkLzDZkdLS3k=
+
+automation-events@^3.0.10:
+  version "3.0.10"
+  resolved "https://registry.yarnpkg.com/automation-events/-/automation-events-3.0.10.tgz#fac7b086882d2b2c3567972b12221a8d692535ff"
+  integrity sha512-oRtvczB5dqQoTPqtLeAQbVJk0t5rxdeUcIABFU0OdCC8FasghUVxAj/JDIaA0XJ2IfWv8hqe4kFQ93DkmoK4/A==
+  dependencies:
+    "@babel/runtime" "^7.13.10"
+    tslib "^2.2.0"
 
 aws-sign2@~0.7.0:
   version "0.7.0"
@@ -2680,6 +2688,15 @@ sshpk@^1.7.0:
     safer-buffer "^2.0.2"
     tweetnacl "~0.14.0"
 
+standardized-audio-context@^25.1.8:
+  version "25.1.14"
+  resolved "https://registry.yarnpkg.com/standardized-audio-context/-/standardized-audio-context-25.1.14.tgz#0f5e4c2e037ded9eb22fcc094493129499da8f34"
+  integrity sha512-05YHHeJGcpZTXUW50RcTZizfoQrRYzDiHUT774erKD11b0lauL0kXKLGx5pFnVDRrQ3mxTu5wmNxA42vlChF4w==
+  dependencies:
+    "@babel/runtime" "^7.13.10"
+    automation-events "^3.0.10"
+    tslib "^2.2.0"
+
 stdout-stream@^1.4.0:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/stdout-stream/-/stdout-stream-1.4.1.tgz#5ac174cdd5cd726104aa0c0b2bd83815d8d535de"
@@ -2853,6 +2870,14 @@ to-regex-range@^5.0.1:
   dependencies:
     is-number "^7.0.0"
 
+tone@^14.7.77:
+  version "14.7.77"
+  resolved "https://registry.yarnpkg.com/tone/-/tone-14.7.77.tgz#12a2a9f033952ccdb552275a6384ca5d36d4b5ed"
+  integrity sha512-tCfK73IkLHyzoKUvGq47gyDyxiKLFvKiVCOobynGgBB9Dl0NkxTM2p+eRJXyCYrjJwy9Y0XCMqD3uOYsYt2Fdg==
+  dependencies:
+    standardized-audio-context "^25.1.8"
+    tslib "^2.0.1"
+
 totalist@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/totalist/-/totalist-1.1.0.tgz#a4d65a3e546517701e3e5c37a47a70ac97fe56df"
@@ -2878,7 +2903,7 @@ trim-newlines@^1.0.0:
   dependencies:
     glob "^7.1.2"
 
-tslib@^2.0.0:
+tslib@^2.0.0, tslib@^2.0.1, tslib@^2.2.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.2.0.tgz#fb2c475977e35e241311ede2693cee1ec6698f5c"
   integrity sha512-gS9GVHRU+RGn5KQM2rllAlR3dU6m7AcpJKdtH8gFvQiC4Otgk98XnmMU+nZenHt/+VhnBPWwgrJsyrdcw6i23w==
