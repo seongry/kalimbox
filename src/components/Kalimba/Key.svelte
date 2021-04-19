@@ -1,9 +1,14 @@
 <script lang="ts">
+  import * as Tone from "tone";
   import type { KalimbaKeyBarsTypes } from "../../constants/KalimbaKey";
 
   export let key: KalimbaKeyBarsTypes;
   export const type: string = "c-key";
   export let onHandleClick: (note: string) => void;
+
+  const synth = new Tone.Synth();
+  synth.oscillator.type = "sine";
+  synth.toMaster();
 </script>
 
 <style lang="scss">
@@ -88,8 +93,12 @@
 
 <div
   class="Key {type}"
-  on:click={() => {
+  on:mousedown={() => {
+    synth.triggerAttack(key.code);
+  }}
+  on:mouseup={() => {
     onHandleClick(key.code);
+    synth.triggerRelease();
   }}
 >
   <span class="codeName{key.higher}">{key.number}</span>
