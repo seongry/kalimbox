@@ -24,6 +24,19 @@
     align-items: center;
   }
 
+  .header {
+    width: 100%;
+    max-width: 1192px;
+    height: 72px;
+    background-color: $purple100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $black;
+    font-weight: 700;
+    font-size: 16px;
+  }
+
   .generator-section {
     width: 100%;
     max-width: 1192px;
@@ -44,6 +57,7 @@
 </style>
 
 <main>
+  <section class="header">칼림바 악보 생성기</section>
   <section class="generator-section">
     <Sheet data={$sheetStore} updateTitle={sheetStore.updateTitle} />
     <section class="kalimba-section">
