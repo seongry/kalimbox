@@ -3,6 +3,6 @@
   import Generator from "./page/Generator.svelte";
 </script>
 
-<Router>
-  <Route path="/" component="{Generator}" />
+<Router url="/">
+  <Route path="/" component={Generator} />
 </Router>
