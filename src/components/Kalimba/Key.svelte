@@ -25,15 +25,14 @@
     align-items: center;
     justify-content: flex-end;
 
-    background: $white;
+    background: linear-gradient(to right, $purple200, $white);
     box-shadow: inset 0px -4px 7px $dark_gray;
     border-bottom-left-radius: 18px;
     border-bottom-right-radius: 18px;
 
-    color: $black;
     font-weight: bold;
 
-    padding-bottom: 16px;
+    padding-bottom: 12px;
     position: relative;
 
     cursor: pointer;
@@ -68,24 +67,43 @@
 
   @mixin octave {
     position: absolute;
-    bottom: 56px;
+    bottom: 62px;
     width: #{$keyWidth}px;
     left: 0;
     text-align: center;
   }
 
   .codeName {
-    &2 {
-      &:before {
-        @include octave;
-        content: ":";
-      }
-    }
+    color: $purple400;
+    &.piano {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
 
+      width: 24px;
+      height: 24px;
+      border: 1px solid $purple400;
+      border-radius: 50%;
+      margin-top: 6px;
+
+      background-color: $purple400;
+      color: $white;
+    }
+  }
+
+  .higher {
     &1 {
       &:before {
         @include octave;
         content: ".";
+      }
+    }
+
+    &2 {
+      &:before {
+        @include octave;
+        content: ":";
       }
     }
   }
@@ -101,6 +119,6 @@
     synth.triggerRelease();
   }}
 >
-  <span class="codeName{key.higher}">{key.number}</span>
-  <span class="codeName">{key.code}</span>
+  <span class="codeName higher{key.higher}">{key.number}</span>
+  <span class="codeName piano">{key.code}</span>
 </div>
