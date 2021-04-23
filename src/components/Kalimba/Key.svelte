@@ -8,7 +8,7 @@
 
   const synth = new Tone.Synth();
   synth.oscillator.type = "sine";
-  synth.toMaster();
+  synth.toDestination();
 </script>
 
 <style lang="scss">
