@@ -18,7 +18,7 @@
   $keyWidth: 36;
   $keyHeight: 240;
 
-  .Key {
+  .key {
     width: #{$keyWidth}px;
     min-height: #{$keyHeight}px;
     display: flex;
@@ -37,6 +37,7 @@
     position: relative;
 
     cursor: pointer;
+    user-select: none;
 
     &:hover {
       background: linear-gradient(#eeeeee, #b7b7b7);
@@ -111,7 +112,7 @@
 </style>
 
 <div
-  class="Key {type}"
+  class="key {type}"
   on:mousedown={() => {
     synth.triggerAttack(key.code);
   }}
