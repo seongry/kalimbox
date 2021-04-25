@@ -9,7 +9,7 @@
 
   let initailSheetData: SheetType = {
     title: "",
-    notes: [],
+    notes: { main: [], sub: [] },
   };
 
   const sheetStore = createSheet(initailSheetData);

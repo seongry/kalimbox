@@ -4,10 +4,13 @@ import {
   ScaleType,
   SCALE_TYPES,
 } from "./constants/KalimbaKey";
-
+export type NotesType = {
+  main: string[];
+  sub: string[];
+};
 export type SheetType = {
   title: string;
-  notes: string[];
+  notes: NotesType;
 };
 export type SheetStoreType = {
   initialValue: SheetType;
@@ -16,7 +19,10 @@ export type SheetStoreType = {
 };
 
 export function createSheet(
-  initialValue: SheetStoreType["initialValue"] = { title: "", notes: [] }
+  initialValue: SheetStoreType["initialValue"] = {
+    title: "",
+    notes: { main: [], sub: [] },
+  }
 ) {
   const { subscribe, update } = writable<SheetStoreType["initialValue"]>(
     initialValue
@@ -36,7 +42,10 @@ export function createSheet(
         }`;
         return {
           title: prev.title,
-          notes: [...prev.notes, note],
+          notes: {
+            main: [...prev.notes.main, note],
+            sub: prev.notes.sub,
+          },
         };
       });
     },

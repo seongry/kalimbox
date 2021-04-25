@@ -1,12 +1,17 @@
 <script lang="ts">
-  export let notes: string[];
+  import type { NotesType } from "../../store";
+
+  export let notes: NotesType;
 </script>
 
 <style lang="scss">
 </style>
 
 <div>
-  {#each notes as note}
+  {#each notes.main as note}
+    {note}
+  {/each}
+  {#each notes.sub as note}
     {note}
   {/each}
 </div>
