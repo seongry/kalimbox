@@ -13,13 +13,14 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 180px;
-    height: 48px;
+    width: 96px;
+    height: 40px;
     background-color: $black;
     border-radius: 8px;
     cursor: pointer;
     color: $white;
     font-size: 18px;
+    font-weight: 500;
   }
 </style>
 
