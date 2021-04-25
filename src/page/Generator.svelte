@@ -1,4 +1,6 @@
 <script lang="ts">
+  import Menu from "../components/common/icon/Menu.svelte";
+  import IconButton from "../components/common/IconButton.svelte";
   import Kalimba from "../components/Kalimba/Kalimba.svelte";
   import SaveButton from "../components/SaveButton.svelte";
   import Sheet from "../components/Sheet/Sheet.svelte";
@@ -25,6 +27,7 @@
   }
 
   .header {
+    flex-shrink: 0;
     width: 100%;
     max-width: 1192px;
     height: 72px;
@@ -35,6 +38,13 @@
     color: $black;
     font-weight: 700;
     font-size: 16px;
+    position: relative;
+
+    .button {
+      position: fixed;
+      top: 16px;
+      right: 16px;
+    }
   }
 
   .generator-section {
@@ -57,7 +67,12 @@
 </style>
 
 <main>
-  <section class="header">칼림바 악보 생성기</section>
+  <section class="header">
+    <div class="title">칼림바 악보 생성기</div>
+    <div class="button">
+      <IconButton label="악보집"><Menu /></IconButton>
+    </div>
+  </section>
   <section class="generator-section">
     <Sheet data={$sheetStore} updateTitle={sheetStore.updateTitle} />
     <section class="kalimba-section">
