@@ -3,6 +3,7 @@ export type KalimbaKeyBarsTypes = {
   code: string;
   higher: number;
 };
+
 export const C_KEY: KalimbaKeyBarsTypes[] = [
   {
     number: "2",
@@ -88,5 +89,16 @@ export const C_KEY: KalimbaKeyBarsTypes[] = [
     number: "3",
     code: "E6",
     higher: 2,
+  },
+];
+
+export type ScaleType = {
+  type: "C_KEY";
+  keys: KalimbaKeyBarsTypes[];
+};
+export const SCALE_TYPES: ScaleType[] = [
+  {
+    type: "C_KEY",
+    keys: C_KEY,
   },
 ];

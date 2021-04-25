@@ -5,7 +5,7 @@
   import SaveButton from "../components/SaveButton.svelte";
   import Sheet from "../components/Sheet/Sheet.svelte";
   import type { SheetType } from "../store";
-  import { createSheet } from "../store";
+  import { createScale, createSheet } from "../store";
 
   let initailSheetData: SheetType = {
     title: "",
@@ -13,6 +13,7 @@
   };
 
   const sheetStore = createSheet(initailSheetData);
+  const scaleStore = createScale();
 </script>
 
 <style lang="scss">
@@ -77,7 +78,7 @@
   <section class="generator-section">
     <Sheet data={$sheetStore} updateTitle={sheetStore.updateTitle} />
     <section class="kalimba-section">
-      <Kalimba updateNotes={sheetStore.updateNotes} />
+      <Kalimba scale={$scaleStore} updateNotes={sheetStore.updateNotes} />
       <SaveButton />
     </section>
   </section>
