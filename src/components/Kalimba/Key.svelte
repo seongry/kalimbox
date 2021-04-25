@@ -1,10 +1,11 @@
 <script lang="ts">
   import * as Tone from "tone";
   import type { KalimbaKeyBarsTypes } from "../../constants/KalimbaKey";
+  import type { SheetStoreType } from "../../store";
 
   export let key: KalimbaKeyBarsTypes;
   export const type: string = "c-key";
-  export let onHandleClick: (note: string) => void;
+  export let onHandleClick: SheetStoreType["updateNotes"];
 
   const synth = new Tone.Synth();
   synth.oscillator.type = "sine";
@@ -115,7 +116,7 @@
     synth.triggerAttack(key.code);
   }}
   on:mouseup={() => {
-    onHandleClick(key.code);
+    onHandleClick(key);
     synth.triggerRelease();
   }}
 >

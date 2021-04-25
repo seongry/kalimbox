@@ -1,10 +1,10 @@
 <script lang="ts">
-  import { C_KEY } from "../../constants/KalimbaKey";
+  import type { ScaleType } from "../../constants/KalimbaKey";
+  import type { SheetStoreType } from "../../store";
   import Key from "./Key.svelte";
 
-  export let updateNotes: (note: string) => void;
-
-  let kalimbaKeys = C_KEY;
+  export let updateNotes: SheetStoreType["updateNotes"];
+  export let scale: ScaleType;
 </script>
 
 <style lang="scss">
@@ -30,16 +30,16 @@
     background-color: $purple300;
     box-shadow: 1px 4px 4px rgba(6, 16, 41, 0.13);
 
-    &.c-key {
+    &.C_KEY {
       width: #{(17 * 36) + (16 * 8) + 80}px;
     }
   }
 </style>
 
 <div class="kalimba">
-  <div class="vibrating-bar {kalimbaKeys === C_KEY && 'c-key'}" />
+  <div class="vibrating-bar {scale.type}" />
   <div class="keys">
-    {#each kalimbaKeys as keyBar}
+    {#each scale.keys as keyBar}
       <Key key={keyBar} onHandleClick={updateNotes} />
     {/each}
   </div>
