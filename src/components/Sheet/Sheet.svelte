@@ -10,9 +10,11 @@
   @import "../../theme/colors.scss";
 
   .sheet {
+    flex-grow: 1;
+    max-height: 380px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     background-color: $white;
     padding: 32px;
   }

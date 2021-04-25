@@ -41,13 +41,14 @@
     position: relative;
 
     .button {
-      position: fixed;
+      position: absolute;
       top: 16px;
       right: 16px;
     }
   }
 
   .generator-section {
+    flex-grow: 1;
     width: 100%;
     max-width: 1192px;
     display: flex;
