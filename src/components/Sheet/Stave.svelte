@@ -3,11 +3,9 @@
 </script>
 
 <style lang="scss">
-  .stave {
-  }
 </style>
 
-<div class="stave">
+<div>
   {#each notes as note}
     {note}
   {/each}
