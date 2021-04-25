@@ -15,6 +15,7 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    align-items: center;
     background-color: $white;
     padding: 32px;
   }
@@ -37,6 +38,8 @@
   }
 
   .stave-box {
+    width: 100%;
+    max-width: 720px;
     padding-top: 12px;
   }
 </style>
