@@ -1,4 +1,5 @@
 <script lang="ts">
+  import Footer from "../components/common/Footer.svelte";
   import Menu from "../components/common/icon/Menu.svelte";
   import IconButton from "../components/common/IconButton.svelte";
   import Kalimba from "../components/Kalimba/Kalimba.svelte";
@@ -82,4 +83,5 @@
       <SaveButton />
     </section>
   </section>
+  <Footer />
 </main>
