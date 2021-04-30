@@ -19,6 +19,8 @@
   .keys {
     display: flex;
     flex-direction: row;
+    overflow: hidden;
+    padding-bottom: 12px;
   }
 
   .vibrating-bar {

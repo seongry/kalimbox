@@ -21,13 +21,22 @@
   .key {
     width: #{$keyWidth}px;
     min-height: #{$keyHeight}px;
+    height: 400px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
 
-    background: linear-gradient(to right, $purple200, $white);
-    box-shadow: inset 0px -4px 7px $dark_gray;
+    background: linear-gradient(
+        180deg,
+        $white 0%,
+        #dfe6f3 68.75%,
+        rgba(160, 177, 209, 0.45) 73.96%,
+        $purple100 79%
+      ),
+      $purple100;
+    box-shadow: 1px 4px 8px rgba(50, 45, 68, 0.25);
+
     border-bottom-left-radius: 18px;
     border-bottom-right-radius: 18px;
 
@@ -40,9 +49,29 @@
     user-select: none;
 
     &:hover {
-      background: linear-gradient(#eeeeee, #b7b7b7);
-      box-shadow: 0px 7px 7px darken($dark_gray, 20%);
-      color: $black;
+      background: linear-gradient(
+          180deg,
+          $white 0%,
+          #dfe6f3 68.75%,
+          rgba(160, 177, 209, 0.45) 73.96%,
+          $purple100 79%,
+          rgba(160, 177, 209, 0.5) 100%
+        ),
+        $purple100;
+      box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    &:active {
+      background: linear-gradient(
+          180deg,
+          $white 0%,
+          #dfe6f3 68.75%,
+          rgba(160, 177, 209, 0.45) 73.96%,
+          $purple100 79%,
+          rgba(160, 177, 209, 0.9) 100%
+        ),
+        $purple100;
+      box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.15);
     }
 
     &:not(:first-child) {
@@ -54,13 +83,19 @@
       $helf: 9;
       @for $index from 1 through 17 {
         &:nth-child(#{$index }) {
-          @if ($index < $helf + 1) {
+          /* @if ($index < $helf + 1) {
             height: #{($index - 1) * $increase + $keyHeight}px;
           } @else {
             height: #{$keyHeight +
               ($increase * $helf) -
               $increase *
               ($index + 1 - $helf)}px;
+          } */
+
+          @if ($index < $helf + 1) {
+            top: #{-180 + ($index * $increase)}px;
+          } @else {
+            top: #{-180 - $increase * ($index - 2 * $helf)}px;
           }
         }
       }
