@@ -41,6 +41,7 @@
     width: 100%;
     max-width: 720px;
     padding-top: 12px;
+    overflow: auto;
   }
 </style>
 

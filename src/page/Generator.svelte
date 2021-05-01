@@ -10,7 +10,7 @@
 
   let initailSheetData: SheetType = {
     title: "",
-    notes: { main: [], sub: [] },
+    notes: [],
   };
 
   const sheetStore = createSheet(initailSheetData);
@@ -56,6 +56,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    overflow: hidden;
   }
 
   .kalimba-section {
