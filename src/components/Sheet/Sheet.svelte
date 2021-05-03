@@ -10,8 +10,8 @@
   @import "../../theme/colors.scss";
 
   .sheet {
-    flex-grow: 1;
-    max-height: 380px;
+    height: 100%;
+    max-height: 600px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
