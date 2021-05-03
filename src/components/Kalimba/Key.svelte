@@ -1,4 +1,5 @@
 <script lang="ts">
+  import * as Tone from "tone";
   import type { KalimbaKeyBarsTypes } from "../../constants/KalimbaKey";
   import type { SheetStoreType } from "../../store";
 
