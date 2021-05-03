@@ -2,7 +2,7 @@
   "name": "kalimba-sheet-generator",
   "version": "1.0.0",
   "private": true,
-  "homepage": "https://raina94.github.io/kalimba-sheet-generator",
+  "homepage": "https://raina94.github.io/",
   "scripts": {
     "build": "rollup -c",
     "deploy": "rollup -c && gh-pages -d public",
