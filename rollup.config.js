@@ -102,6 +102,6 @@ export default {
     svg(),
   ],
   watch: {
-    clearScreen: false,
+    // clearScreen: false,
   },
 };
