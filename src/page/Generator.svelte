@@ -81,7 +81,6 @@
   <section class="generator-section">
     <Sheet data={$sheetStore} updateTitle={sheetStore.updateTitle} />
     <section class="kalimba-section">
-      테스트지롱
       <Kalimba scale={$scaleStore} updateNotes={sheetStore.updateNotes} />
       <SaveButton />
     </section>
