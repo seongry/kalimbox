@@ -4,6 +4,7 @@ export type KalimbaKeyBarsTypes = {
   higher: number;
 };
 
+export const SPACEBAR = "_";
 export const C_KEY: KalimbaKeyBarsTypes[] = [
   {
     number: "2",

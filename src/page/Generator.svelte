@@ -9,6 +9,7 @@
   import Sheet from "../components/Sheet/Sheet.svelte";
   import type { SheetType } from "../store";
   import { createScale, createSheet } from "../store";
+  import { SPACEBAR } from "../constants/KalimbaKey";
 
   let initailSheetData: SheetType = {
     title: "",
@@ -21,6 +22,9 @@
   const handlePressBackspace = (e: KeyboardEvent) => {
     if (e.keyCode === 8) {
       sheetStore.removeNote();
+    }
+    if (e.keyCode === 32) {
+      sheetStore.updateNotes(SPACEBAR);
     }
   };
 </script>
@@ -39,7 +43,6 @@
   .header {
     flex-shrink: 0;
     width: 100%;
-    max-width: 1192px;
     height: 72px;
     background-color: $purple100;
     display: flex;
@@ -60,7 +63,6 @@
   .generator-section {
     flex-grow: 1;
     width: 100%;
-    max-width: 1192px;
     display: flex;
     flex-direction: column;
     justify-content: center;

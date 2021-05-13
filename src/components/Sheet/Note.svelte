@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { SPACEBAR } from "../../constants/KalimbaKey";
+
   export let numberCode: string;
 </script>
 
@@ -47,5 +49,5 @@
     ? '1'
     : ''}"
 >
-  {numberCode !== "_" && numberCode.charAt(0)}
+  {numberCode === SPACEBAR ? "" : numberCode.charAt(0)}
 </span>

@@ -3,6 +3,7 @@ import {
   KalimbaKeyBarsTypes,
   ScaleType,
   SCALE_TYPES,
+  SPACEBAR,
 } from "./constants/KalimbaKey";
 export type NotesType = {
   main: string[];
@@ -107,11 +108,14 @@ export function createSheet(
         notes: prev.notes,
       }));
     },
-    updateNotes(codeInfo: KalimbaKeyBarsTypes) {
+    updateNotes(codeInfo: KalimbaKeyBarsTypes | typeof SPACEBAR) {
       update((prev) => {
-        const note = `${codeInfo.number}${
-          codeInfo.higher === 2 ? "''" : codeInfo.higher === 1 ? "'" : ""
-        }`;
+        const note =
+          codeInfo === SPACEBAR
+            ? SPACEBAR
+            : `${codeInfo.number}${
+                codeInfo.higher === 2 ? "''" : codeInfo.higher === 1 ? "'" : ""
+              }`;
 
         return {
           title: prev.title,
