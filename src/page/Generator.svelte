@@ -1,4 +1,6 @@
 <script lang="ts">
+  import type { log } from "tone/build/esm/core/util/Debug";
+
   import Footer from "../components/common/Footer.svelte";
   import Menu from "../components/common/icon/Menu.svelte";
   import IconButton from "../components/common/IconButton.svelte";
@@ -15,6 +17,12 @@
 
   const sheetStore = createSheet(initailSheetData);
   const scaleStore = createScale();
+
+  const handlePressBackspace = (e: KeyboardEvent) => {
+    if (e.keyCode === 8) {
+      sheetStore.removeNote();
+    }
+  };
 </script>
 
 <style lang="scss">
@@ -71,6 +79,7 @@
   }
 </style>
 
+<svelte:window on:keydown={handlePressBackspace} />
 <main>
   <section class="header">
     <div class="title">칼림바 악보 생성기</div>

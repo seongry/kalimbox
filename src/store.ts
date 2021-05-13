@@ -63,6 +63,33 @@ const insertNote = ({
   });
 };
 
+type RemoveLastNoteProps = { notes: NotesType[]; isMain: boolean };
+const removeLastNote = ({
+  notes,
+  isMain,
+}: RemoveLastNoteProps): NotesType[] => {
+  if (notes.length === 0) {
+    return [];
+  }
+
+  const lastRow = notes.slice(-1).pop();
+  const notesWithoutLast = notes.slice(0, -1);
+
+  const removedNote = isMain
+    ? {
+        main: lastRow.main.slice(0, -1),
+        sub: lastRow.sub,
+      }
+    : {
+        main: lastRow.main,
+        sub: lastRow.sub.slice(0, -1),
+      };
+
+  return removedNote.main.length === 0 && removedNote.sub.length === 0
+    ? notesWithoutLast
+    : notesWithoutLast.concat([removedNote]);
+};
+
 export function createSheet(
   initialValue: SheetStoreType["initialValue"] = {
     title: "",
@@ -93,6 +120,14 @@ export function createSheet(
             note: note,
             isMain: true,
           }),
+        };
+      });
+    },
+    removeNote() {
+      update((prev) => {
+        return {
+          title: prev.title,
+          notes: removeLastNote({ notes: prev.notes, isMain: true }),
         };
       });
     },
