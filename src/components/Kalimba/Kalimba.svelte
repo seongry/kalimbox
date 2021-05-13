@@ -27,7 +27,7 @@
     position: absolute;
     top: 40px;
 
-    height: 20px;
+    height: 25px;
     border-radius: 20px;
     background-color: $purple300;
     box-shadow: 1px 4px 4px rgba(6, 16, 41, 0.13);
