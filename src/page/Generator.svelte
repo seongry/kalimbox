@@ -1,15 +1,13 @@
 <script lang="ts">
-  import type { log } from "tone/build/esm/core/util/Debug";
-
   import Footer from "../components/common/Footer.svelte";
   import Menu from "../components/common/icon/Menu.svelte";
   import IconButton from "../components/common/IconButton.svelte";
   import Kalimba from "../components/Kalimba/Kalimba.svelte";
   import SaveButton from "../components/SaveButton.svelte";
   import Sheet from "../components/Sheet/Sheet.svelte";
+  import { SPACEBAR } from "../constants/KalimbaKey";
   import type { SheetType } from "../store";
   import { createScale, createSheet } from "../store";
-  import { SPACEBAR } from "../constants/KalimbaKey";
 
   let initailSheetData: SheetType = {
     title: "",
@@ -18,14 +16,21 @@
 
   const sheetStore = createSheet(initailSheetData);
   const scaleStore = createScale();
+  $: isValid = !!$sheetStore.title && $sheetStore.notes.length > 0;
 
   const handlePressBackspace = (e: KeyboardEvent) => {
-    if (e.keyCode === 8) {
+    if (e.code === "Backspace") {
       sheetStore.removeNote();
     }
-    if (e.keyCode === 32) {
+    if (e.code === "Space") {
       sheetStore.updateNotes(SPACEBAR);
     }
+  };
+  const handleSaveButtonClick = (): void => {
+    if (!isValid) {
+      return;
+    }
+    sheetStore.saveSheet($sheetStore);
   };
 </script>
 
@@ -73,7 +78,7 @@
     flex: 1 1 auto;
     width: 100%;
 
-    background-color: $purple200;
+    background-color: #e0e9ff;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -93,7 +98,7 @@
     <Sheet data={$sheetStore} updateTitle={sheetStore.updateTitle} />
     <section class="kalimba-section">
       <Kalimba scale={$scaleStore} updateNotes={sheetStore.updateNotes} />
-      <SaveButton />
+      <SaveButton isValid={isValid} handleClick={handleSaveButtonClick} />
     </section>
   </section>
   <Footer />

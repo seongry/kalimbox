@@ -135,6 +135,14 @@ export function createSheet(
         };
       });
     },
+    saveSheet(sheetData: SheetType) {
+      console.log(sheetData);
+      const parsedSheetList =
+        JSON.parse(localStorage.getItem("__sheetList")) ?? [];
+      const newData = JSON.stringify([...parsedSheetList, sheetData]);
+
+      localStorage.setItem("__sheetList", newData);
+    },
   };
 }
 

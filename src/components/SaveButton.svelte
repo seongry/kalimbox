@@ -1,4 +1,6 @@
 <script lang="ts">
+  export let isValid: boolean;
+  export let handleClick: () => void;
 </script>
 
 <style lang="scss">
@@ -22,9 +24,22 @@
     font-size: 18px;
     font-weight: 500;
     font-family: Roboto;
+
+    &.disabled {
+      background-color: $gray300;
+      color: $gray200;
+      cursor: not-allowed;
+    }
   }
 </style>
 
 <div>
-  <div class="save-button">save</div>
+  <div
+    class="save-button"
+    on:click={handleClick}
+    class:disabled={!isValid}
+    disabled={!isValid}
+  >
+    save
+  </div>
 </div>
