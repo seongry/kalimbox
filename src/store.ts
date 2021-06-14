@@ -1,9 +1,9 @@
 import { writable } from "svelte/store";
 import {
-  KalimbaKeyBarsTypes,
-  ScaleType,
-  SCALE_TYPES,
-  SPACEBAR,
+    KalimbaKeyBarsTypes,
+    ScaleType,
+    SCALE_TYPES,
+    SPACEBAR
 } from "./constants/KalimbaKey";
 export type NotesType = {
   main: string[];

@@ -1,13 +1,12 @@
 <script lang="ts">
-  import Footer from "../components/common/Footer.svelte";
-  import Menu from "../components/common/icon/Menu.svelte";
-  import IconButton from "../components/common/IconButton.svelte";
-  import Kalimba from "../components/Kalimba/Kalimba.svelte";
-  import SaveButton from "../components/SaveButton.svelte";
-  import Sheet from "../components/Sheet/Sheet.svelte";
-  import { SPACEBAR } from "../constants/KalimbaKey";
-  import type { SheetType } from "../store";
-  import { createScale, createSheet } from "../store";
+	import MenuIcon from "../components/common/icon/MenuIcon.svelte";
+	import IconButton from "../components/common/IconButton.svelte";
+	import SaveButton from "../components/common/SaveButton.svelte";
+	import Kalimba from "../components/Kalimba/Kalimba.svelte";
+	import Sheet from "../components/Sheet/Sheet.svelte";
+	import { SPACEBAR } from "../constants/KalimbaKey";
+	import type { SheetType } from "../store";
+	import { createScale,createSheet } from "../store";
 
   let initailSheetData: SheetType = {
     title: "",
@@ -32,39 +31,29 @@
     }
     sheetStore.saveSheet($sheetStore);
   };
+
 </script>
 
-<style lang="scss">
-  @import "../theme/colors.scss";
-
-  main {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
+<style>
   .header {
     flex-shrink: 0;
     width: 100%;
     height: 72px;
-    background-color: $purple100;
+    background-color: var(--colors-purple100);
     display: flex;
     justify-content: center;
     align-items: center;
-    color: $black;
+    color: var(--colors-black);
     font-weight: 700;
     font-size: 16px;
     position: relative;
-
-    .button {
+  }
+  .header .button {
       position: absolute;
       top: 16px;
       right: 16px;
-    }
-  }
-
+	}
+	
   .generator-section {
     flex-grow: 1;
     width: 100%;
@@ -73,11 +62,9 @@
     justify-content: center;
     overflow: hidden;
   }
-
   .kalimba-section {
     flex: 1 1 auto;
     width: 100%;
-
     background-color: #e0e9ff;
     display: flex;
     flex-direction: column;
@@ -86,20 +73,21 @@
   }
 </style>
 
+<svelte:head>
+	<title>칼림바 생성기</title>
+</svelte:head>
+
 <svelte:window on:keydown={handlePressBackspace} />
-<main>
-  <section class="header">
+<section class="header">
     <div class="title">칼림바 악보 생성기</div>
     <div class="button">
-      <IconButton label="악보집"><Menu /></IconButton>
+      <IconButton label="악보집"><MenuIcon /></IconButton>
     </div>
   </section>
   <section class="generator-section">
-    <Sheet data={$sheetStore} updateTitle={sheetStore.updateTitle} />
+     <Sheet data={$sheetStore} updateTitle={sheetStore.updateTitle} />
     <section class="kalimba-section">
       <Kalimba scale={$scaleStore} updateNotes={sheetStore.updateNotes} />
       <SaveButton isValid={isValid} handleClick={handleSaveButtonClick} />
-    </section>
+    </section> 
   </section>
-  <Footer />
-</main>
