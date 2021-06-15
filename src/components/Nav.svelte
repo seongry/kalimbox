@@ -35,16 +35,16 @@
     <div class="button">
 		{#if segment === undefined}
 		<a aria-current="{segment === 'list' ? 'page' : undefined}" href="list">
-			<IconButton label="만들기">
-				<KalimbaIcon/>
+			<IconButton label="악보집">
+				<MenuIcon />
 			</IconButton>
 		</a>
 		{/if}
 		{#if segment === 'list'}
 		<a aria-current="{segment === undefined ? 'page' : undefined}" href=".">
-			<IconButton label="악보집">
-				<MenuIcon />
-			  </IconButton>
+			<IconButton label="만들기">
+				<KalimbaIcon/>
+			</IconButton>
 		</a>
 		{/if}
     </div>
