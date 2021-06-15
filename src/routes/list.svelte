@@ -1,8 +1,5 @@
 <script lang="ts">
-    import Footer from "../components/common/Footer.svelte";
-    import KalimbaIcon from "../components/common/icon/KalimbaIcon.svelte";
-  import IconButton from "../components/common/IconButton.svelte";
-  </script>
+      </script>
   
   <style>
     main {
@@ -32,12 +29,10 @@
     }
   </style>
   
+<svelte:head>
+	<title>칼림바 악보 생성기 : 리스트</title>
+</svelte:head>
+
   <main>
-    <section class="header">
-      <div class="title">칼림바 악보 생성기</div>
-      <div class="button">
-        <IconButton label="만들기"><KalimbaIcon /></IconButton>
-      </div>
-    </section>
     <section />
   </main>
