@@ -1,6 +1,6 @@
 <script lang="ts">
-  import menu_svg from "../../../asset/menu_icon.svg";
+import MenuSvg from "../../../asset/menu_icon.svg";
 
-  </script>
+</script>
   
-  <img src={menu_svg} />
+<MenuSvg/>
