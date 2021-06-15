@@ -3,6 +3,8 @@
 	import KalimbaIcon from "./common/icon/KalimbaIcon.svelte";
 	import MenuIcon from "./common/icon/MenuIcon.svelte";
 	export let segment: string;
+	
+	$: title = segment === 'list' ? '내 악보' : '칼림바 악보 생성기';
 </script>
 
 <style>
@@ -31,7 +33,7 @@
 </style>
 
 <nav class="header">
-    <div class="title">칼림바 악보 생성기</div>
+    <div class="title">{title}</div>
     <div class="button">
 		{#if segment === undefined}
 		<a aria-current="{segment === 'list' ? 'page' : undefined}" href="list">
