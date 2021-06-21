@@ -6,7 +6,6 @@
 
   onMount(async () => {
     parsedSheetList = JSON.parse(localStorage.getItem("__sheetList")) ?? [];
-    console.log(parsedSheetList);
   });
 </script>
 
