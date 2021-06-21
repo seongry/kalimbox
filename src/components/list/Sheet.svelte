@@ -12,6 +12,8 @@
     justify-content: center;
     align-items: center;
     width: 144px;
+
+    cursor: pointer;
   }
 
   .box {
@@ -22,6 +24,7 @@
     border-radius: 2px;
     width: 100px;
     height: 124px;
+    box-shadow: 5px 5px 10px var(--colors-purple300);
   }
   .title {
     padding-top: 12px;
