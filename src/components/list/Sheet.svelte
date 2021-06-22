@@ -1,8 +1,13 @@
 <script lang="ts">
+  import { goto } from "@sapper/app";
   import MusicSymbolSvg from "../../asset/music_symbol_icon.svg";
   import type { SheetType } from "../../store";
 
   export let data: SheetType;
+
+  const handleClick = async () => {
+    await goto(`/kalimba-sheet-generator/?id=${data.id}`);
+  };
 </script>
 
 <style>
@@ -40,7 +45,7 @@
   }
 </style>
 
-<div class="sheet-wrapper">
+<div class="sheet-wrapper" on:click={handleClick}>
   <div class="box">
     <MusicSymbolSvg />
   </div>
