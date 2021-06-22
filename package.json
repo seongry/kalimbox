@@ -2,7 +2,7 @@
   "name": "kalimba-sheet-generator",
   "version": "1.0.0",
   "private": true,
-  "homepage": "https://raina94.github.io/kalimba-sheet-generator/",
+  "homepage": "https://seongry.github.io/kalimba-sheet-generator/",
   "scripts": {
     "dev": "sapper dev",
     "export": "sapper export --basepath kalimba-sheet-generator --legacy",
