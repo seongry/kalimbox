@@ -1,15 +1,16 @@
 import { writable } from "svelte/store";
 import {
-    KalimbaKeyBarsTypes,
-    ScaleType,
-    SCALE_TYPES,
-    SPACEBAR
+  KalimbaKeyBarsTypes,
+  ScaleType,
+  SCALE_TYPES,
+  SPACEBAR,
 } from "./constants/KalimbaKey";
 export type NotesType = {
   main: string[];
   sub: string[];
 };
 export type SheetType = {
+  id: string;
   title: string;
   notes: NotesType[];
 };
@@ -90,20 +91,22 @@ const removeLastNote = ({
     ? notesWithoutLast
     : notesWithoutLast.concat([removedNote]);
 };
-
+const initalSheetData = {
+  id: Date.now().toString(),
+  title: "",
+  notes: [],
+};
 export function createSheet(
-  initialValue: SheetStoreType["initialValue"] = {
-    title: "",
-    notes: [],
-  }
+  initialValue: SheetStoreType["initialValue"] = initalSheetData
 ) {
-  const { subscribe, update } = writable<SheetStoreType["initialValue"]>(
-    initialValue
-  );
+  const { subscribe, update } =
+    writable<SheetStoreType["initialValue"]>(initialValue);
   return {
     subscribe,
+    update,
     updateTitle(input) {
       update((prev) => ({
+        id: prev.id,
         title: input.value as string,
         notes: prev.notes,
       }));
@@ -118,6 +121,7 @@ export function createSheet(
               }`;
 
         return {
+          id: prev.id,
           title: prev.title,
           notes: insertNote({
             prevNotes: prev.notes,
@@ -130,13 +134,13 @@ export function createSheet(
     removeNote() {
       update((prev) => {
         return {
+          id: prev.id,
           title: prev.title,
           notes: removeLastNote({ notes: prev.notes, isMain: true }),
         };
       });
     },
     saveSheet(sheetData: SheetType) {
-      console.log(sheetData);
       const parsedSheetList =
         JSON.parse(localStorage.getItem("__sheetList")) ?? [];
       const newData = JSON.stringify([...parsedSheetList, sheetData]);
