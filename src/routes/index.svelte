@@ -1,19 +1,36 @@
+<script context="module">
+  export async function preload(page, _) {
+    const { id } = page.query;
+
+    return { id };
+  }
+</script>
+
 <script lang="ts">
-	import SaveButton from "../components/common/SaveButton.svelte";
-	import Kalimba from "../components/Kalimba/Kalimba.svelte";
-	import Sheet from "../components/Sheet/Sheet.svelte";
-	import { SPACEBAR } from "../constants/KalimbaKey";
-	import type { SheetType } from "../store";
-	import { createScale,createSheet } from "../store";
+  import { onMount } from "svelte";
+  import SaveButton from "../components/common/SaveButton.svelte";
+  import Kalimba from "../components/Kalimba/Kalimba.svelte";
+  import Sheet from "../components/Sheet/Sheet.svelte";
+  import { SPACEBAR } from "../constants/KalimbaKey";
+  import type { SheetType } from "../store";
+  import { createScale, createSheet } from "../store";
 
-  let initailSheetData: SheetType = {
-    title: "",
-    notes: [],
-  };
+  export let id: string;
 
-  const sheetStore = createSheet(initailSheetData);
+  const sheetStore = createSheet();
   const scaleStore = createScale();
+
   $: isValid = !!$sheetStore.title && $sheetStore.notes.length > 0;
+
+  onMount(() => {
+    if (id) {
+      const parsedSheetList: SheetType[] =
+        JSON.parse(localStorage.getItem("__sheetList")) ?? [];
+      const selectedSheetInfo = parsedSheetList.find((item) => item.id === id);
+
+      sheetStore.update(() => selectedSheetInfo);
+    }
+  });
 
   const handlePressBackspace = (e: KeyboardEvent) => {
     if (e.code === "Backspace") {
@@ -29,11 +46,10 @@
     }
     sheetStore.saveSheet($sheetStore);
   };
-
 </script>
 
 <style>
-.generator-section {
+  .generator-section {
     flex-grow: 1;
     width: 100%;
     display: flex;
@@ -53,14 +69,14 @@
 </style>
 
 <svelte:head>
-	<title>칼림바 악보 생성기</title>
+  <title>칼림바 악보 생성기</title>
 </svelte:head>
 
 <svelte:window on:keydown={handlePressBackspace} />
 <section class="generator-section">
-     <Sheet data={$sheetStore} updateTitle={sheetStore.updateTitle} />
-    <section class="kalimba-section">
-      <Kalimba scale={$scaleStore} updateNotes={sheetStore.updateNotes} />
-      <SaveButton isValid={isValid} handleClick={handleSaveButtonClick} />
-    </section> 
+  <Sheet data={$sheetStore} updateTitle={sheetStore.updateTitle} />
+  <section class="kalimba-section">
+    <Kalimba scale={$scaleStore} updateNotes={sheetStore.updateNotes} />
+    <SaveButton isValid={isValid} handleClick={handleSaveButtonClick} />
+  </section>
 </section>
