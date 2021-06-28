@@ -25,11 +25,12 @@
   .title-box {
     display: flex;
     justify-content: center;
+    padding-bottom: 1rem;
   }
   .title {
     border: none;
     border-bottom: 1px solid var(--colors-gray100);
-    font-size: 24px;
+    font-size: 1.5rem;
     font-weight: bold;
     text-align: center;
     outline: none;
@@ -41,8 +42,8 @@
     flex: 1 1 auto;
     width: 100%;
     max-width: calc(20 * 1.8rem);
-    padding-top: 1rem;
-    min-height: min-content;
+    overflow-x: hidden;
+    overflow-y: overlay;
   }
 
   .extend-button {
