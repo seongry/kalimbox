@@ -1,23 +1,24 @@
 <script lang="ts">
-	import Footer from '../components/common/Footer.svelte';
-	import Nav from '../components/Nav.svelte';
+  import Footer from "../components/common/Footer.svelte";
+  import Nav from "../components/Nav.svelte";
 
-	export let segment: string;
+  export let segment: string;
 </script>
 
 <style>
-	main {
-		width: 100%;
-		height: 100%;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-	}
+  section {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+  }
 </style>
 
-<Nav {segment}/>
+<Nav segment={segment} />
 
-<main>
-	<slot></slot>
-</main>
-<Footer/>
+<section>
+  <slot />
+</section>
+<Footer />

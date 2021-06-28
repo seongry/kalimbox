@@ -74,60 +74,60 @@
     box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.15);
   }
   .key:not(:first-child) {
-    margin-left: 8px;
+    margin-left: 0.5rem;
   }
 
   .key:nth-child(1) {
-    top: calc(-180px + 1 * var(--increase));
+    top: calc(-11.25rem + 1 * var(--increase));
   }
   .key:nth-child(2) {
-    top: calc(-180px + 2 * var(--increase));
+    top: calc(-11.25rem + 2 * var(--increase));
   }
   .key:nth-child(3) {
-    top: calc(-180px + 3 * var(--increase));
+    top: calc(-11.25rem + 3 * var(--increase));
   }
   .key:nth-child(4) {
-    top: calc(-180px + 4 * var(--increase));
+    top: calc(-11.25rem + 4 * var(--increase));
   }
   .key:nth-child(5) {
-    top: calc(-180px + 5 * var(--increase));
+    top: calc(-11.25rem + 5 * var(--increase));
   }
   .key:nth-child(6) {
-    top: calc(-180px + 6 * var(--increase));
+    top: calc(-11.25rem + 6 * var(--increase));
   }
   .key:nth-child(7) {
-    top: calc(-180px + 7 * var(--increase));
+    top: calc(-11.25rem + 7 * var(--increase));
   }
   .key:nth-child(8) {
-    top: calc(-180px + 8 * var(--increase));
+    top: calc(-11.25rem + 8 * var(--increase));
   }
   .key:nth-child(9) {
-    top: calc(-180px + 9 * var(--increase));
+    top: calc(-11.25rem + 9 * var(--increase));
   }
   .key:nth-child(10) {
-    top: calc(-180px - var(--increase) * (10 - 2 * var(--helf)));
+    top: calc(-11.25rem - var(--increase) * (10 - 2 * var(--helf)));
   }
   .key:nth-child(11) {
-    top: calc(-180px - var(--increase) * (11 - 2 * var(--helf)));
+    top: calc(-11.25rem - var(--increase) * (11 - 2 * var(--helf)));
   }
   .key:nth-child(12) {
-    top: calc(-180px - var(--increase) * (12 - 2 * var(--helf)));
+    top: calc(-11.25rem - var(--increase) * (12 - 2 * var(--helf)));
   }
 
   .key:nth-child(13) {
-    top: calc(-180px - var(--increase) * (13 - 2 * var(--helf)));
+    top: calc(-11.25rem - var(--increase) * (13 - 2 * var(--helf)));
   }
   .key:nth-child(14) {
-    top: calc(-180px - var(--increase) * (14 - 2 * var(--helf)));
+    top: calc(-11.25rem - var(--increase) * (14 - 2 * var(--helf)));
   }
   .key:nth-child(15) {
-    top: calc(-180px - var(--increase) * (15 - 2 * var(--helf)));
+    top: calc(-11.25rem - var(--increase) * (15 - 2 * var(--helf)));
   }
   .key:nth-child(16) {
-    top: calc(-180px - var(--increase) * (16 - 2 * var(--helf)));
+    top: calc(-11.25rem - var(--increase) * (16 - 2 * var(--helf)));
   }
   .key:nth-child(17) {
-    top: calc(-180px - var(--increase) * (17 - 2 * var(--helf)));
+    top: calc(-11.25rem - var(--increase) * (17 - 2 * var(--helf)));
   }
 
   .codeName {

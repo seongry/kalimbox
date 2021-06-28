@@ -50,15 +50,14 @@
 
 <style>
   .generator-section {
-    flex-grow: 1;
     width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    align-items: center;
     overflow: hidden;
   }
   .kalimba-section {
-    flex: 1 1 auto;
     width: 100%;
     background-color: #e0e9ff;
     display: flex;
