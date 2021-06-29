@@ -19,6 +19,14 @@ export type SheetStoreType = {
   updateTitle: (input: any) => void;
   updateNotes: (codeInfo: KalimbaKeyBarsTypes) => void;
 };
+export type OptionStoreType = {
+  scale: ScaleType;
+  isExtend: boolean;
+};
+export type UpdateOptionType = {
+  name: keyof OptionStoreType;
+  value: any;
+};
 
 const MAX_NOTE_IN_ROW = 20;
 type InsertRowType = { prevNotes: NotesType[]; note: string; isMain: boolean };
@@ -150,9 +158,24 @@ export function createSheet(
   };
 }
 
-export function createScale(initialValue: ScaleType = SCALE_TYPES[0]) {
-  const { subscribe } = writable<ScaleType>(initialValue);
+const initialOption: OptionStoreType = {
+  scale: SCALE_TYPES[0],
+  isExtend: false,
+};
+export function createOption(initialValue: OptionStoreType = initialOption) {
+  const { subscribe, update } = writable<OptionStoreType>(initialValue);
+
   return {
     subscribe,
+    updateOption({ name, value }: UpdateOptionType) {
+      switch (name) {
+        case "scale":
+          update((prev) => ({ scale: value, isExtend: prev.isExtend }));
+          break;
+        case "isExtend":
+          update((prev) => ({ scale: prev.scale, isExtend: value }));
+          break;
+      }
+    },
   };
 }
