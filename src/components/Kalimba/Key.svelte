@@ -145,7 +145,7 @@
     margin-top: 6px;
     background-color: var(--colors-purple400);
     color: var(--colors-white);
-    line-height: 1.2;
+    line-height: 1.3;
   }
   .higher1::before {
     position: absolute;
