@@ -1,17 +1,20 @@
 <script lang="ts">
+  import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
+  import Fa from "svelte-fa";
   import type { SheetType } from "../../store";
   import Stave from "./Stave.svelte";
   export let data: SheetType;
   export let updateTitle: (e: EventTarget) => void;
-  let extendSheet: boolean = false;
-
-  const toggleExtendSheet = () => !extendSheet;
+  export let isExtend: boolean;
+  export let toggleIsExtend: () => void;
 </script>
 
 <style>
   .sheet {
     flex: 1 1 auto;
     width: 100%;
+    height: 100%;
+    max-height: 40%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -19,8 +22,20 @@
     background-color: var(--colors-white);
     padding-top: 1rem;
 
-    position: relative;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9;
     overflow: overlay;
+
+    transition: max-height 0.25s ease-in;
+  }
+  .sheet.extend {
+    width: 100%;
+    height: 100%;
+    max-height: 85%;
+
+    transition: max-height 0.25s ease-out;
   }
   .title-box {
     display: flex;
@@ -47,7 +62,7 @@
     overflow-y: overlay;
   }
 
-  .extend-button {
+  .extend-button-section {
     width: 100%;
     background-color: var(--colors-white);
     position: sticky;
@@ -55,9 +70,22 @@
     text-align: center;
     padding: 1rem;
   }
+
+  .extend-button {
+    width: 6rem;
+    font-size: 2rem;
+    border: none;
+    border-radius: 0.5rem;
+    outline: none;
+    background-color: var(--colors-white);
+    cursor: pointer;
+  }
+  .extend-button:active {
+    background-color: var(--colors-white);
+  }
 </style>
 
-<div class="sheet">
+<div class="sheet" class:extend={isExtend}>
   <div class="title-box">
     <input
       class="title"
@@ -72,5 +100,9 @@
   <div id="stave-box" class="stave-box">
     <Stave notes={data.notes} />
   </div>
-  <div class="extend-button" on:click={toggleExtendSheet}>확장</div>
+  <div class="extend-button-section">
+    <button class="extend-button" on:click={toggleIsExtend}>
+      <Fa icon={faAngleDown} />
+    </button>
+  </div>
 </div>

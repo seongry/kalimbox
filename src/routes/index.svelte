@@ -13,12 +13,12 @@
   import Sheet from "../components/Sheet/Sheet.svelte";
   import { SPACEBAR } from "../constants/KalimbaKey";
   import type { SheetStoreType, SheetType } from "../store";
-  import { createScale, createSheet } from "../store";
+  import { createOption, createSheet } from "../store";
 
   export let id: string;
 
   const sheetStore = createSheet();
-  const scaleStore = createScale();
+  const optionStore = createOption();
 
   $: isValid = !!$sheetStore.title && $sheetStore.notes.length > 0;
 
@@ -59,6 +59,12 @@
       }
     }, 0);
   };
+  const toggleIsExtend = (): void => {
+    optionStore.updateOption({
+      name: "isExtend",
+      value: !$optionStore.isExtend,
+    });
+  };
 </script>
 
 <style>
@@ -69,9 +75,13 @@
     flex-direction: column;
     align-items: center;
     overflow: hidden;
+
+    position: relative;
+    justify-content: flex-end;
   }
   .kalimba-section {
     width: 100%;
+    height: 60%;
     background-color: #e0e9ff;
     display: flex;
     flex-direction: column;
@@ -86,9 +96,14 @@
 
 <svelte:window on:keydown={handlePressBackspace} />
 <section class="generator-section">
-  <Sheet data={$sheetStore} updateTitle={sheetStore.updateTitle} />
+  <Sheet
+    data={$sheetStore}
+    isExtend={$optionStore.isExtend}
+    updateTitle={sheetStore.updateTitle}
+    toggleIsExtend={toggleIsExtend}
+  />
   <section class="kalimba-section">
-    <Kalimba scale={$scaleStore} updateNotes={handleKeyClick} />
+    <Kalimba scale={$optionStore.scale} updateNotes={handleKeyClick} />
     <SaveButton isValid={isValid} handleClick={handleSaveButtonClick} />
   </section>
 </section>
