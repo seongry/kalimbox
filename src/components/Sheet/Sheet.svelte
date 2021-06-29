@@ -41,7 +41,8 @@
   .stave-box {
     flex: 1 1 auto;
     width: 100%;
-    max-width: calc(20 * 1.8rem);
+    max-width: calc(21 * 1.8rem);
+    margin-left: 1.8rem;
     overflow-x: hidden;
     overflow-y: overlay;
   }
@@ -68,7 +69,7 @@
       }}
     />
   </div>
-  <div class="stave-box">
+  <div id="stave-box" class="stave-box">
     <Stave notes={data.notes} />
   </div>
   <div class="extend-button" on:click={toggleExtendSheet}>확장</div>

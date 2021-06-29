@@ -12,7 +12,7 @@
   import Kalimba from "../components/Kalimba/Kalimba.svelte";
   import Sheet from "../components/Sheet/Sheet.svelte";
   import { SPACEBAR } from "../constants/KalimbaKey";
-  import type { SheetType } from "../store";
+  import type { SheetStoreType, SheetType } from "../store";
   import { createScale, createSheet } from "../store";
 
   export let id: string;
@@ -46,6 +46,19 @@
     }
     sheetStore.saveSheet($sheetStore);
   };
+  const handleKeyClick: SheetStoreType["updateNotes"] = (codeInfo) => {
+    sheetStore.updateNotes(codeInfo);
+
+    const staveBoxElement = document.getElementById("stave-box");
+    setTimeout(() => {
+      if (staveBoxElement) {
+        staveBoxElement.scroll({
+          top: staveBoxElement.scrollHeight,
+          behavior: "smooth",
+        });
+      }
+    }, 0);
+  };
 </script>
 
 <style>
@@ -75,7 +88,7 @@
 <section class="generator-section">
   <Sheet data={$sheetStore} updateTitle={sheetStore.updateTitle} />
   <section class="kalimba-section">
-    <Kalimba scale={$scaleStore} updateNotes={sheetStore.updateNotes} />
+    <Kalimba scale={$scaleStore} updateNotes={handleKeyClick} />
     <SaveButton isValid={isValid} handleClick={handleSaveButtonClick} />
   </section>
 </section>
