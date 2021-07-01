@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { SheetType } from "../../store";
+  import NoSheet from "./NoSheet.svelte";
   import Sheet from "./Sheet.svelte";
 
   export let sheetList: SheetType[];
@@ -26,10 +27,15 @@
   }
 </style>
 
-<ul>
-  {#each sheetList as sheet}
-    <li>
-      <Sheet data={sheet} />
-    </li>
-  {/each}
-</ul>
+{#if sheetList.length !== 0}
+  <NoSheet />
+{/if}
+{#if sheetList.length === 0}
+  <ul>
+    {#each sheetList as sheet}
+      <li>
+        <Sheet data={sheet} />
+      </li>
+    {/each}
+  </ul>
+{/if}
