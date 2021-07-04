@@ -29,6 +29,10 @@
     overflow: overlay;
 
     transition: max-height 0.25s ease-in;
+
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    box-shadow: 1px 4px 8px rgb(6 16 41 / 13%);
   }
   .sheet.extend {
     width: 100%;
@@ -53,7 +57,7 @@
   .title::placeholder {
     color: var(--colors-gray200);
   }
-  .stave-box {
+  #stave-box {
     flex: 1 1 auto;
     width: 100%;
     max-width: calc(21 * 1.8rem);
@@ -97,7 +101,7 @@
       }}
     />
   </div>
-  <div id="stave-box" class="stave-box">
+  <div id="stave-box">
     <Stave notes={data.notes} />
   </div>
   <div class="extend-button-section">
