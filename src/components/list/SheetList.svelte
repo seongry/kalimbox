@@ -23,7 +23,7 @@
     padding-left: 12px;
   }
   li:nth-child(n + 6) {
-    padding-top: 12px;
+    padding-top: 5rem;
   }
 </style>
 
