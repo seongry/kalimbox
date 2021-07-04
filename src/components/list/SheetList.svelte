@@ -27,10 +27,10 @@
   }
 </style>
 
-{#if sheetList.length !== 0}
+{#if sheetList.length === 0}
   <NoSheet />
 {/if}
-{#if sheetList.length === 0}
+{#if sheetList.length !== 0}
   <ul>
     {#each sheetList as sheet}
       <li>
