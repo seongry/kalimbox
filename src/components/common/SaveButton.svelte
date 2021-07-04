@@ -4,9 +4,11 @@
 </script>
 
 <style>
-  div {
-    flex: 1;
-    margin: 20px 0;
+  .button-wrapper {
+    flex: 0;
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 1.5rem;
   }
   .save-button {
     display: flex;
@@ -30,7 +32,7 @@
   }
 </style>
 
-<div>
+<div class="button-wrapper">
   <div class="save-button" on:click={handleClick} class:disabled={!isValid}>
     save
   </div>

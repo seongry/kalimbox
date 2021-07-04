@@ -26,8 +26,10 @@
   }
   .key {
     width: var(--keyWidth);
-    min-height: var(--keyHeight);
-    height: 400px;
+    /* min-height: var(--keyHeight); */
+    /* height: 400px; */
+    height: 100%;
+    max-height: 360px;
     display: flex;
     flex-direction: column;
     align-items: center;
