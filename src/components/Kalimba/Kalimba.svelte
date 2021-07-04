@@ -1,9 +1,26 @@
 <script lang="ts">
   import type { ScaleType } from "../../constants/KalimbaKey";
   import type { SheetStoreType } from "../../store";
+  import { sheetStore } from "../../store";
   import Key from "./Key.svelte";
-  export let updateNotes: SheetStoreType["updateNotes"];
+
   export let scale: ScaleType;
+
+  const { updateNotes } = sheetStore;
+
+  const handleKeyClick: SheetStoreType["updateNotes"] = (codeInfo) => {
+    updateNotes(codeInfo);
+
+    const staveBoxElement = document.getElementById("stave-box");
+    setTimeout(() => {
+      if (staveBoxElement) {
+        staveBoxElement.scroll({
+          top: staveBoxElement.scrollHeight,
+          behavior: "smooth",
+        });
+      }
+    }, 0);
+  };
 </script>
 
 <style>
@@ -34,7 +51,7 @@
   <div class="vibrating-bar {scale.type}" />
   <div class="keys">
     {#each scale.keys as keyBar}
-      <Key key={keyBar} onHandleClick={updateNotes} />
+      <Key key={keyBar} onHandleClick={handleKeyClick} />
     {/each}
   </div>
 </div>

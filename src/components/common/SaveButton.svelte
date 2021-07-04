@@ -1,6 +1,13 @@
 <script lang="ts">
-  export let isValid: boolean;
-  export let handleClick: () => void;
+  import { sheetStore } from "../../store";
+
+  const { isValid, sheetInfo, saveSheet } = sheetStore;
+  const handleOnClick = (): void => {
+    if (!$isValid) {
+      return;
+    }
+    saveSheet($sheetInfo);
+  };
 </script>
 
 <style>
@@ -33,7 +40,7 @@
 </style>
 
 <div class="button-wrapper">
-  <div class="save-button" on:click={handleClick} class:disabled={!isValid}>
+  <div class="save-button" on:click={handleOnClick} class:disabled={!$isValid}>
     save
   </div>
 </div>

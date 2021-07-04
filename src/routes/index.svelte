@@ -12,52 +12,32 @@
   import Kalimba from "../components/Kalimba/Kalimba.svelte";
   import Sheet from "../components/Sheet/Sheet.svelte";
   import { SPACEBAR } from "../constants/KalimbaKey";
-  import type { SheetStoreType, SheetType } from "../store";
-  import { createOption, createSheet } from "../store";
+  import type { SheetType } from "../store";
+  import { createOption, sheetStore } from "../store";
 
   export let id: string;
 
-  const sheetStore = createSheet();
   const optionStore = createOption();
 
-  $: isValid = !!$sheetStore.title && $sheetStore.notes.length > 0;
+  const { setSheetInfoById, removeNote, updateNotes } = sheetStore;
 
   onMount(() => {
     if (id) {
       const parsedSheetList: SheetType[] =
         JSON.parse(localStorage.getItem("__sheetList")) ?? [];
-      const selectedSheetInfo = parsedSheetList.find((item) => item.id === id);
+      const fetchedData = parsedSheetList.find((item) => item.id === id);
 
-      sheetStore.update(() => selectedSheetInfo);
+      setSheetInfoById(fetchedData);
     }
   });
 
   const handlePressBackspace = (e: KeyboardEvent) => {
     if (e.code === "Backspace") {
-      sheetStore.removeNote();
+      removeNote();
     }
     if (e.code === "Space") {
-      sheetStore.updateNotes(SPACEBAR);
+      updateNotes(SPACEBAR);
     }
-  };
-  const handleSaveButtonClick = (): void => {
-    if (!isValid) {
-      return;
-    }
-    sheetStore.saveSheet($sheetStore);
-  };
-  const handleKeyClick: SheetStoreType["updateNotes"] = (codeInfo) => {
-    sheetStore.updateNotes(codeInfo);
-
-    const staveBoxElement = document.getElementById("stave-box");
-    setTimeout(() => {
-      if (staveBoxElement) {
-        staveBoxElement.scroll({
-          top: staveBoxElement.scrollHeight,
-          behavior: "smooth",
-        });
-      }
-    }, 0);
   };
   const toggleIsExtend = (): void => {
     optionStore.updateOption({
@@ -96,14 +76,9 @@
 
 <svelte:window on:keydown={handlePressBackspace} />
 <section class="generator-section">
-  <Sheet
-    data={$sheetStore}
-    isExtend={$optionStore.isExtend}
-    updateTitle={sheetStore.updateTitle}
-    toggleIsExtend={toggleIsExtend}
-  />
+  <Sheet isExtend={$optionStore.isExtend} toggleIsExtend={toggleIsExtend} />
   <section class="kalimba-section">
-    <Kalimba scale={$optionStore.scale} updateNotes={handleKeyClick} />
-    <SaveButton isValid={isValid} handleClick={handleSaveButtonClick} />
+    <Kalimba scale={$optionStore.scale} />
+    <SaveButton />
   </section>
 </section>

@@ -1,4 +1,4 @@
-import { writable } from "svelte/store";
+import { derived, Readable, writable } from "svelte/store";
 import {
   KalimbaKeyBarsTypes,
   ScaleType,
@@ -14,10 +14,19 @@ export type SheetType = {
   title: string;
   notes: NotesType[];
 };
+export type SelectedNoteType = number | null;
+export type UpdateSelectedType = {
+  index: NonNullable<SelectedNoteType>;
+  value: KalimbaKeyBarsTypes;
+};
 export type SheetStoreType = {
-  initialValue: SheetType;
+  readonly sheetInfo: Readable<SheetType>;
+  readonly isValid: Readable<boolean>;
+  setSheetInfoById: (sheetInfo: SheetType) => void;
   updateTitle: (input: any) => void;
-  updateNotes: (codeInfo: KalimbaKeyBarsTypes) => void;
+  updateNotes: (codeInfo: KalimbaKeyBarsTypes | typeof SPACEBAR) => void;
+  removeNote: () => void;
+  saveSheet: (sheetData: SheetType) => void;
 };
 export type OptionStoreType = {
   scale: ScaleType;
@@ -104,23 +113,33 @@ const initalSheetData = {
   title: "",
   notes: [],
 };
-export function createSheet(
-  initialValue: SheetStoreType["initialValue"] = initalSheetData
-) {
-  const { subscribe, update } =
-    writable<SheetStoreType["initialValue"]>(initialValue);
+const createSheet = (
+  initialValue: SheetType = initalSheetData
+): SheetStoreType => {
+  const selectedNote = writable<number | null>(null);
+  const sheet = writable<SheetType>(initialValue);
   return {
-    subscribe,
-    update,
+    get sheetInfo() {
+      return sheet;
+    },
+    get isValid() {
+      return derived(
+        sheet,
+        ($sheet) => $sheet.title && $sheet.notes.length > 0
+      );
+    },
+    setSheetInfoById(sheetInfo) {
+      sheet.set(sheetInfo);
+    },
     updateTitle(input) {
-      update((prev) => ({
+      sheet.update((prev) => ({
         id: prev.id,
         title: input.value as string,
         notes: prev.notes,
       }));
     },
-    updateNotes(codeInfo: KalimbaKeyBarsTypes | typeof SPACEBAR) {
-      update((prev) => {
+    updateNotes(codeInfo) {
+      sheet.update((prev) => {
         const note =
           codeInfo === SPACEBAR
             ? SPACEBAR
@@ -140,7 +159,7 @@ export function createSheet(
       });
     },
     removeNote() {
-      update((prev) => {
+      sheet.update((prev) => {
         return {
           id: prev.id,
           title: prev.title,
@@ -148,15 +167,21 @@ export function createSheet(
         };
       });
     },
-    saveSheet(sheetData: SheetType) {
+    saveSheet(sheetData) {
       const parsedSheetList =
         JSON.parse(localStorage.getItem("__sheetList")) ?? [];
       const newData = JSON.stringify([...parsedSheetList, sheetData]);
 
       localStorage.setItem("__sheetList", newData);
     },
+    // selectNote(index: number | null) {
+    //   _updateSelectedNote(() => index);
+    // },
+    // updateSelectedNote(index) {},
   };
-}
+};
+
+export const sheetStore = createSheet();
 
 const initialOption: OptionStoreType = {
   scale: SCALE_TYPES[0],

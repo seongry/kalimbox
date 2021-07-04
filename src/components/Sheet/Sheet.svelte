@@ -1,12 +1,13 @@
 <script lang="ts">
   import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
   import Fa from "svelte-fa";
-  import type { SheetType } from "../../store";
+  import { sheetStore } from "../../store";
   import Stave from "./Stave.svelte";
-  export let data: SheetType;
-  export let updateTitle: (e: EventTarget) => void;
+
   export let isExtend: boolean;
   export let toggleIsExtend: () => void;
+
+  const { sheetInfo, updateTitle } = sheetStore;
 </script>
 
 <style>
@@ -95,14 +96,14 @@
       class="title"
       type="input"
       placeholder="악보 제목을 입력해주세요"
-      bind:value={data.title}
+      bind:value={$sheetInfo.title}
       on:change={(e) => {
         updateTitle(e.target);
       }}
     />
   </div>
   <div id="stave-box">
-    <Stave notes={data.notes} />
+    <Stave notes={$sheetInfo.notes} />
   </div>
   <div class="extend-button-section">
     <button class="extend-button" on:click={toggleIsExtend}>
