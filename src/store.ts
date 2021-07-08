@@ -14,19 +14,22 @@ export type SheetType = {
   title: string;
   notes: NotesType[];
 };
-export type SelectedNoteType = number | null;
-export type UpdateSelectedType = {
-  index: NonNullable<SelectedNoteType>;
-  value: KalimbaKeyBarsTypes;
-};
+export type SelectedNoteType = {
+  row: number;
+  index: number;
+  isMain: boolean;
+} | null;
 export type SheetStoreType = {
   readonly sheetInfo: Readable<SheetType>;
   readonly isValid: Readable<boolean>;
+  readonly selectedNote: SelectedNoteType;
   setSheetInfoById: (sheetInfo: SheetType) => void;
   updateTitle: (input: any) => void;
   updateNotes: (codeInfo: KalimbaKeyBarsTypes | typeof SPACEBAR) => void;
   removeNote: () => void;
   saveSheet: (sheetData: SheetType) => void;
+  selectNote: (indexInfo: SelectedNoteType) => void;
+  insertSelectedNote: (codeInfo: KalimbaKeyBarsTypes) => void;
 };
 export type OptionStoreType = {
   scale: ScaleType;
@@ -81,6 +84,24 @@ const insertNote = ({
     }
   });
 };
+type InsertAdditionalNoteType = Omit<InsertRowType, "isMain"> & {
+  indexInfo: SelectedNoteType;
+};
+const insertAdditionalNote = ({
+  prevNotes,
+  note,
+  indexInfo,
+}: InsertAdditionalNoteType): NotesType[] => {
+  const copied: NotesType[] = JSON.parse(JSON.stringify(prevNotes));
+
+  if (indexInfo.isMain) {
+    copied[indexInfo.row]["main"][indexInfo.index] += note;
+  } else {
+    copied[indexInfo.row]["sub"][indexInfo.index] += note;
+  }
+
+  return copied;
+};
 
 type RemoveLastNoteProps = { notes: NotesType[]; isMain: boolean };
 const removeLastNote = ({
@@ -116,7 +137,7 @@ const initalSheetData = {
 const createSheet = (
   initialValue: SheetType = initalSheetData
 ): SheetStoreType => {
-  const selectedNote = writable<number | null>(null);
+  let selectedNote: SelectedNoteType = null;
   const sheet = writable<SheetType>(initialValue);
   return {
     get sheetInfo() {
@@ -127,6 +148,9 @@ const createSheet = (
         sheet,
         ($sheet) => $sheet.title && $sheet.notes.length > 0
       );
+    },
+    get selectedNote() {
+      return selectedNote;
     },
     setSheetInfoById(sheetInfo) {
       sheet.set(sheetInfo);
@@ -174,10 +198,25 @@ const createSheet = (
 
       localStorage.setItem("__sheetList", newData);
     },
-    // selectNote(index: number | null) {
-    //   _updateSelectedNote(() => index);
-    // },
-    // updateSelectedNote(index) {},
+    selectNote(indexInfo) {
+      selectedNote = indexInfo;
+    },
+    insertSelectedNote(codeInfo) {
+      sheet.update((prev) => {
+        const note = `${codeInfo.number}${
+          codeInfo.higher === 2 ? "''" : codeInfo.higher === 1 ? "'" : ""
+        }`;
+        return {
+          id: prev.id,
+          title: prev.title,
+          notes: insertAdditionalNote({
+            prevNotes: prev.notes,
+            note: note,
+            indexInfo: selectedNote,
+          }),
+        };
+      });
+    },
   };
 };
 
