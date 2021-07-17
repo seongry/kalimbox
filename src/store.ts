@@ -5,6 +5,8 @@ import {
   SCALE_TYPES,
   SPACEBAR,
 } from "./constants/KalimbaKey";
+
+//#region TYPES
 export type NotesType = {
   main: string[];
   sub: string[];
@@ -16,20 +18,23 @@ export type SheetType = {
 };
 export type SelectedNoteType = {
   row: number;
-  index: number;
   isMain: boolean;
+  index: number | null;
 } | null;
 export type SheetStoreType = {
   readonly sheetInfo: Readable<SheetType>;
   readonly isValid: Readable<boolean>;
-  readonly selectedNote: SelectedNoteType;
+  readonly selectedNote: Readable<SelectedNoteType>;
   setSheetInfoById: (sheetInfo: SheetType) => void;
   updateTitle: (input: any) => void;
   updateNotes: (codeInfo: KalimbaKeyBarsTypes | typeof SPACEBAR) => void;
   removeNote: () => void;
   saveSheet: (sheetData: SheetType) => void;
   selectNote: (indexInfo: SelectedNoteType) => void;
-  insertSelectedNote: (codeInfo: KalimbaKeyBarsTypes) => void;
+  insertSelectedNote: (props: {
+    codeInfo: KalimbaKeyBarsTypes;
+    selectedNote: SelectedNoteType;
+  }) => void;
 };
 export type OptionStoreType = {
   scale: ScaleType;
@@ -39,8 +44,14 @@ export type UpdateOptionType = {
   name: keyof OptionStoreType;
   value: any;
 };
+//#endregion
 
+//#region CONSTANTS
 const MAX_NOTE_IN_ROW = 20;
+const NOT_SELECTED = null;
+//#endregion
+
+//#region METHODS
 type InsertRowType = { prevNotes: NotesType[]; note: string; isMain: boolean };
 const insertNote = ({
   prevNotes,
@@ -129,6 +140,9 @@ const removeLastNote = ({
     ? notesWithoutLast
     : notesWithoutLast.concat([removedNote]);
 };
+//#endregion
+
+//#region sheetStore
 const initalSheetData = {
   id: Date.now().toString(),
   title: "",
@@ -137,7 +151,7 @@ const initalSheetData = {
 const createSheet = (
   initialValue: SheetType = initalSheetData
 ): SheetStoreType => {
-  let selectedNote: SelectedNoteType = null;
+  const selectedNote = writable<SelectedNoteType>(NOT_SELECTED);
   const sheet = writable<SheetType>(initialValue);
   return {
     get sheetInfo() {
@@ -150,7 +164,7 @@ const createSheet = (
       );
     },
     get selectedNote() {
-      return selectedNote;
+      return derived(selectedNote, ($selectedNote) => $selectedNote);
     },
     setSheetInfoById(sheetInfo) {
       sheet.set(sheetInfo);
@@ -199,9 +213,16 @@ const createSheet = (
       localStorage.setItem("__sheetList", newData);
     },
     selectNote(indexInfo) {
-      selectedNote = indexInfo;
+      selectedNote.update((prev) => {
+        const sameValue =
+          prev?.index === indexInfo.index &&
+          prev?.row === indexInfo.row &&
+          prev?.isMain === indexInfo.isMain;
+
+        return sameValue ? NOT_SELECTED : indexInfo;
+      });
     },
-    insertSelectedNote(codeInfo) {
+    insertSelectedNote({ codeInfo, selectedNote }) {
       sheet.update((prev) => {
         const note = `${codeInfo.number}${
           codeInfo.higher === 2 ? "''" : codeInfo.higher === 1 ? "'" : ""
@@ -221,7 +242,9 @@ const createSheet = (
 };
 
 export const sheetStore = createSheet();
+//#region
 
+//#region OptionStore
 const initialOption: OptionStoreType = {
   scale: SCALE_TYPES[0],
   isExtend: false,
@@ -243,3 +266,4 @@ export function createOption(initialValue: OptionStoreType = initialOption) {
     },
   };
 }
+//#endregion
