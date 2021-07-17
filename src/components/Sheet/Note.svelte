@@ -1,6 +1,7 @@
 <script lang="ts">
   import { SPACEBAR } from "../../constants/KalimbaKey";
   export let numberCode: string;
+  export let isSelected: boolean;
 </script>
 
 <style>
@@ -30,14 +31,23 @@
     top: -8px;
     content: ":";
   }
+
+  .selected {
+    background: var(--colors-purple400);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 0.5rem;
+    color: var(--colors-white);
+  }
 </style>
 
 <span
+  on:click|stopPropagation
   class="note higher{numberCode.length === 3
     ? '2'
     : numberCode.length === 2
     ? '1'
     : ''}"
+  class:selected={isSelected}
 >
   {numberCode === SPACEBAR ? "" : numberCode.charAt(0)}
 </span>
