@@ -16,7 +16,8 @@
     height: 3.5rem;
   }
   .note:hover {
-    border: 1px solid var(--colors-gray200);
+    color: var(--colors-purple400);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
     border-radius: 0.5rem;
   }
   .higher1::before {
@@ -32,7 +33,8 @@
     content: ":";
   }
 
-  .selected {
+  .selected,
+  .selected:hover {
     background: var(--colors-purple400);
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
     border-radius: 0.5rem;
