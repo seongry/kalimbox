@@ -64,7 +64,25 @@
     max-width: calc(21 * 1.8rem);
     margin-left: 1.8rem;
     overflow-x: hidden;
+    overflow-y: hidden;
+  }
+
+  #stave-box:hover {
     overflow-y: overlay;
+  }
+  #stave-box::-webkit-scrollbar {
+    width: 6px;
+  }
+  #stave-box::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+  #stave-box::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    background-color: var(--colors-gray300);
+  }
+  #stave-box::-webkit-scrollbar-button {
+    width: 0;
+    height: 0;
   }
 
   .extend-button-section {
