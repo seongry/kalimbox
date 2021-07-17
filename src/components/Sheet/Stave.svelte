@@ -13,20 +13,30 @@
   }
   .main,
   .sub {
+    position: relative;
     display: flex;
     align-items: center;
     height: 100%;
     padding: 0.5rem;
     cursor: pointer;
+    margin-left: 0.5rem;
+  }
+  .main:hover,
+  .sub:hover,
+  .selected {
+    height: 4.5rem;
   }
   .main:hover::before,
-  .sub:hover::before {
+  .sub:hover::before,
+  .selected::before {
+    position: absolute;
+    top: 0.5rem;
+    left: 0;
     content: "";
     width: 3px;
     background-color: var(--colors-gray100);
     height: 3.5rem;
     border-radius: 0.5rem;
-    margin-right: 0.5rem;
   }
 
   .selected:hover::before {
@@ -34,12 +44,7 @@
   }
 
   .selected::before {
-    content: "";
-    width: 3px;
     background-color: var(--colors-gray200);
-    height: 3.5rem;
-    border-radius: 0.5rem;
-    margin-right: 0.5rem;
   }
 </style>
 
