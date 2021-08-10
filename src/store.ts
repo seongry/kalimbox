@@ -106,9 +106,9 @@ const insertAdditionalNote = ({
   const copied: NotesType[] = JSON.parse(JSON.stringify(prevNotes));
 
   if (indexInfo.isMain) {
-    copied[indexInfo.row]["main"][indexInfo.index] += note;
+    copied[indexInfo.row]["main"][indexInfo.index] += `|${note}`;
   } else {
-    copied[indexInfo.row]["sub"][indexInfo.index] += note;
+    copied[indexInfo.row]["sub"][indexInfo.index] += `|${note}`;
   }
 
   return copied;
