@@ -1,7 +1,12 @@
 .DS_Store
-/node_modules/
-/src/node_modules/@sapper/
 yarn-error.log
-/__sapper__/
+/node_modules/
 /public/build/
 /.vscode/
+.yarn/*
+!.yarn/cache
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
