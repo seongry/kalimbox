@@ -15,7 +15,7 @@
   .sub {
     position: relative;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     height: 100%;
     padding: 0.5rem;
     cursor: pointer;
@@ -24,7 +24,7 @@
   .main:hover,
   .sub:hover,
   .selected {
-    height: 4.5rem;
+    min-height: 4.5rem;
   }
   .main:hover::before,
   .sub:hover::before,

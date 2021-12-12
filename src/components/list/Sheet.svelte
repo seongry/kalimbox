@@ -1,5 +1,7 @@
 <script lang="ts">
+  import { faTimes } from "@fortawesome/free-solid-svg-icons";
   import { goto } from "@sapper/app";
+  import Fa from "svelte-fa";
   import MusicSymbolSvg from "../../asset/music_symbol_icon.svg";
   import type { SheetType } from "../../store";
 
@@ -19,6 +21,13 @@
     width: 144px;
 
     cursor: pointer;
+    position: relative;
+  }
+
+  .delete-button {
+    position: absolute;
+    top: -6px;
+    right: 16px;
   }
 
   .box {
@@ -46,6 +55,9 @@
 </style>
 
 <div class="sheet-wrapper" on:click={handleClick}>
+  <span class="delete-button">
+    <Fa icon={faTimes} size="lg" color="#c6c6c6" />
+  </span>
   <div class="box">
     <MusicSymbolSvg />
   </div>

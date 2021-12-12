@@ -2,9 +2,20 @@
   import { SPACEBAR } from "../../constants/KalimbaKey";
   export let numberCode: string;
   export let isSelected: boolean;
+
+  $: codeList = numberCode.split("|");
 </script>
 
 <style>
+  .group {
+    display: inline-flex;
+    flex-direction: row;
+  }
+  .group:hover {
+    color: var(--colors-purple400);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 0.5rem;
+  }
   .note {
     display: inline-block;
     position: relative;
@@ -13,12 +24,7 @@
     font-weight: 700;
     border: 1px solid transparent;
     width: 1.8rem;
-    height: 3.5rem;
-  }
-  .note:hover {
-    color: var(--colors-purple400);
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
-    border-radius: 0.5rem;
+    /* height: 3.5rem; */
   }
   .higher1::before {
     position: absolute;
@@ -42,14 +48,10 @@
   }
 </style>
 
-<span
-  on:click|stopPropagation
-  class="note higher{numberCode.length === 3
-    ? '2'
-    : numberCode.length === 2
-    ? '1'
-    : ''}"
-  class:selected={isSelected}
->
-  {numberCode === SPACEBAR ? "" : numberCode.charAt(0)}
-</span>
+<div class="group" class:selected={isSelected}>
+  {#each codeList as item}
+    <span on:click|stopPropagation class="note">
+      {item === SPACEBAR ? "" : item}
+    </span>
+  {/each}
+</div>

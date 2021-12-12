@@ -1,16 +1,15 @@
 <script lang="ts">
   import type { ScaleType } from "../../constants/KalimbaKey";
+  import { SPACEBAR } from "../../constants/KalimbaKey";
   import type { SheetStoreType } from "../../store";
   import { sheetStore } from "../../store";
   import Key from "./Key.svelte";
 
   export let scale: ScaleType;
 
-  const { updateNotes } = sheetStore;
+  const { selectedNote, updateNotes, insertSelectedNote } = sheetStore;
 
-  const handleKeyClick: SheetStoreType["updateNotes"] = (codeInfo) => {
-    updateNotes(codeInfo);
-
+  const scrollToBottom = (): void => {
     const staveBoxElement = document.getElementById("stave-box");
     setTimeout(() => {
       if (staveBoxElement) {
@@ -20,6 +19,19 @@
         });
       }
     }, 0);
+  };
+  const handleKeyClick: SheetStoreType["updateNotes"] = (codeInfo) => {
+    if ($selectedNote.index) {
+      if (codeInfo !== SPACEBAR) {
+        insertSelectedNote({
+          codeInfo: codeInfo,
+          selectedNote: $selectedNote,
+        });
+      }
+    } else {
+      updateNotes(codeInfo);
+      scrollToBottom();
+    }
   };
 </script>
 
