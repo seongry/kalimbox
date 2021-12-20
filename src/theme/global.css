@@ -1,0 +1,28 @@
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+:root {
+    --colors-black: #191919;
+    --colors-dark_gray: #d9d9d9;
+
+    --colors-gray0: #ffffff;
+    --colors-gray50: #ededed;
+    --colors-gray100: #c6c6c6;
+    --colors-gray200: #767676;
+    --colors-gray300: #505050;
+    --colors-gray400: #242424;
+    --colors-gray500: #191919;
+    --colors-gray600: #000000;
+
+    --colors-purple50: #f0f5ff;
+    --colors-purple100: #dde3f1;
+    --colors-purple200: #c0b6d9;
+    --colors-purple300: #8869cf;
+    --colors-purple400: #6239bf;
+    --colors-purple500: #4f24b3;
+    --colors-purple600: #310f80;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: "Noto Sans KR", Roboto;
+}
