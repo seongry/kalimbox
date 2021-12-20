@@ -1,4 +1,4 @@
-import { css } from "@emotion/react"
+import { css } from "@emotion/react";
 
 //#region Header
 export const header = css`
@@ -15,7 +15,7 @@ export const header = css`
     background-color: var(--colors-background-header);
     color: var(--colors-black);
     font-size: 16px;
-`
+`;
 //#endregion
 
 //#region Footer
@@ -30,11 +30,29 @@ export const footer = css`
     padding: 16px;
 
     font-size: 12px;
-`
+`;
 export const introLink = css`
     color: var(--colors-purple300);
     text-decoration: none;
     margin: 0 4px;
-`
+`;
 
+//#endregion
+
+//#region Layout
+export const layout = css`
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+`;
+
+export const contents = css`
+    flex: 1 1 auto;
+    width: 100%;
+    height: 100%;
+`;
 //#endregion
