@@ -58,16 +58,17 @@ export const vibratingBar = css`
 //#region Key
 const backgroundStyle = css`
     --key-middle-color: #dfe6f3;
-    --key-gradient-color: rgba(160, 177, 209, 0.45);
+    --key-gradient-color: rgba(160, 177, 209, 0);
+    --key-gradient-color2: rgba(160, 177, 209, 0.5);
 
     background: linear-gradient(
             180deg,
             var(--colors-gray0) 0%,
             var(--key-middle-color) 68.75%,
-            var(--key-gradient-color) 73.96%,
-            var(--colors-purple100) 79%
+            var(--key-gradient-color) 73.96%
         ),
-        var(--colors-purple100);
+        var(--colors-purple50);
+
     box-shadow: 1px 4px 8px rgba(50, 45, 68, 0.25);
 
     :hover {
@@ -76,10 +77,9 @@ const backgroundStyle = css`
                 var(--colors-gray0) 0%,
                 var(--key-middle-color) 68.75%,
                 var(--key-gradient-color) 73.96%,
-                var(--colors-purple100) 79%,
-                rgba(160, 177, 209, 0.5) 100%
+                var(--key-gradient-color2) 100%
             ),
-            var(--colors-purple100);
+            #f0f5ff;
         box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
     }
 
@@ -89,10 +89,9 @@ const backgroundStyle = css`
                 var(--colors-gray0) 0%,
                 var(--key-middle-color) 68.75%,
                 var(--key-gradient-color) 73.96%,
-                var(--colors-purple100) 79%,
-                rgba(160, 177, 209, 0.9) 100%
+                var(--key-gradient-color2) 100%
             ),
-            var(--colors-purple100);
+            #f0f5ff;
         box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.15);
     }
 `;
