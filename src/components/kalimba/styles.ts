@@ -9,11 +9,11 @@ export const contents = css`
     display: grid;
     grid-template-rows: 1fr 1.5fr;
     background-color: var(--color-kalimba-backround);
+    position: relative;
 `;
 export const sheetSection = css`
     width: 100%;
     height: 100%;
-    position: relative;
 `;
 export const kalimbaSection = css`
     width: 100%;
