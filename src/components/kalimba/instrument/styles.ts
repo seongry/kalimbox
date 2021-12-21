@@ -1,25 +1,52 @@
+import { BREAKPOINTS } from "@/theme/breakpoints";
 import { css } from "@emotion/react";
+
+const KEY_INFO = {
+    width: "36px",
+    height: "360px",
+    increasement: "20px",
+};
 
 //#region Kalimba
 export const kalimbaBody = css`
     width: 100%;
     height: 100%;
+    max-height: ${KEY_INFO.height};
     position: relative;
     display: flex;
     justify-content: center;
+    padding-bottom: 12px;
+
+    overflow: hidden;
 `;
 
 export const keys = css`
     display: flex;
     flex-direction: row;
-    overflow: hidden;
-    padding-bottom: 1.5rem;
+    padding-bottom: 12px;
+
+    ${BREAKPOINTS["table"]} {
+        overflow-x: auto;
+    }
+
+    ::-webkit-scrollbar {
+        background-color: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+        background-color: var(--colors-gray200);
+        border-radius: 16px;
+        border: 4px solid var(--color-kalimba-backround);
+    }
+    ::-webkit-scrollbar-track {
+        background-color: var(--color-kalimba-backround);
+    }
 `;
 
 export const vibratingBar = css`
     position: absolute;
     top: 1.5rem;
-    width: 820px;
+    width: 100%;
+    max-width: 820px;
     height: 25px;
     border-radius: 20px;
     background-color: var(--colors-gray0);
@@ -29,11 +56,6 @@ export const vibratingBar = css`
 //#endregion
 
 //#region Key
-const KEY_INFO = {
-    width: "36px",
-    height: "240px",
-    increasement: "20px",
-};
 const backgroundStyle = css`
     --key-middle-color: #dfe6f3;
     --key-gradient-color: rgba(160, 177, 209, 0.45);
@@ -77,7 +99,7 @@ const backgroundStyle = css`
 export const key = css`
     width: ${KEY_INFO.width};
     height: 100%;
-    max-height: 360px;
+    max-height: ${KEY_INFO.height};
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -131,7 +153,7 @@ export const high = ({ level }: { level: number }) => css`
     :before {
         position: absolute;
         bottom: 62px;
-        width: ${KEY_INFO.width};
+        width: 100%;
         left: 0;
         text-align: center;
 

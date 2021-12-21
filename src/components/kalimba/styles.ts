@@ -1,12 +1,14 @@
 import { css } from "@emotion/react";
 
 export const contents = css`
+    --color-kalimba-backround: #e0e9ff;
+
     flex: 1;
     width: 100%;
     height: 100%;
     display: grid;
     grid-template-rows: 1fr 1.5fr;
-    background-color: #e0e9ff;
+    background-color: var(--color-kalimba-backround);
 `;
 export const sheetSection = css`
     width: 100%;
@@ -34,7 +36,7 @@ export const saveButton = css`
     cursor: pointer;
     outline: none;
     border: none;
-    margin-bottom: 16px;
+    margin-bottom: 24px;
 
     color: var(--colors-gray0);
     font-size: 18px;
