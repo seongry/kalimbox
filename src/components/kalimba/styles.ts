@@ -6,6 +6,7 @@ export const contents = css`
     height: 100%;
     display: grid;
     grid-template-rows: 1fr 1.5fr;
+    background-color: #e0e9ff;
 `;
 export const sheetSection = css`
     width: 100%;
@@ -15,5 +16,4 @@ export const sheetSection = css`
 export const kalimbaSection = css`
     width: 100%;
     height: 100%;
-    background-color: #e0e9ff;
 `;
