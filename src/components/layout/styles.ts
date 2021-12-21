@@ -10,7 +10,7 @@ export const header = css`
     align-items: center;
     position: relative;
     width: 100%;
-    height: 72px;
+    height: 64px;
 
     background-color: var(--colors-background-header);
     color: var(--colors-black);
@@ -43,11 +43,9 @@ export const introLink = css`
 export const layout = css`
     width: 100%;
     height: 100%;
+    display: grid;
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex-wrap: wrap;
+    grid-template-rows: 64px auto min-content;
 `;
 
 export const contents = css`
