@@ -1,5 +1,6 @@
 /** @jsx jsx */
 
+import { Stave } from "@/components/kalimba/sheet/Stave";
 import {
     extendButton,
     extendButtonBox,
@@ -24,7 +25,9 @@ export const Sheet: FC = () => {
                     placeholder="악보 제목을 입력해주세요"
                 />
             </div>
-            <div css={staveBox}>stave section</div>
+            <div css={staveBox}>
+                <Stave />
+            </div>
             <div css={extendButtonBox}>
                 <button css={extendButton} onClick={toggleExtend}>
                     😊
