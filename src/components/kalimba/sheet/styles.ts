@@ -37,21 +37,47 @@ export const titleBox = css`
 `;
 export const titleInput = css`
     border: none;
-    border-bottom: 1px solid var(--colors-gray100);
-    font-size: 1.5rem;
-    font-weight: bold;
+    border-bottom: 1px solid var(--colors-gray50);
+    font-size: 1.2rem;
+    font-weight: 500;
     text-align: center;
     outline: none;
+    padding-bottom: 8px;
 
     ::placeholder {
-        color: var(--colors-gray200);
+        color: var(--colors-gray100);
     }
 `;
-export const staveBox = css`
-    flex: 1 1 auto;
+export const extendButtonBox = css`
     width: 100%;
-    max-width: calc(21 * 1.8rem);
-    margin-left: 1.8rem;
+    background-color: var(--colors-gray0);
+    position: sticky;
+    bottom: 0;
+    text-align: center;
+    padding: 16px;
+`;
+export const extendButton = css`
+    width: 6rem;
+    font-size: 2rem;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
+
+    :hover {
+        background-color: var(--colors-gray50);
+    }
+
+    :active {
+        background-color: transparent;
+    }
+`;
+
+export const staveBox = css`
+    flex: 1;
+    width: 80%;
+    max-width: 800px;
     overflow: hidden;
 
     :hover {
@@ -75,29 +101,10 @@ export const staveBox = css`
         height: 0;
     }
 `;
-export const extendButtonBox = css`
-    width: 100%;
-    background-color: var(--colors-gray0);
-    position: sticky;
-    bottom: 0;
-    text-align: center;
-    padding: 1rem;
-`;
-export const extendButton = css`
-    width: 6rem;
-    font-size: 2rem;
-    border: none;
-    border-radius: 0.5rem;
-    outline: none;
-    background-color: transparent;
-    cursor: pointer;
+//#endregion
 
-    :hover {
-        background-color: var(--colors-gray50);
-    }
-
-    :active {
-        background-color: transparent;
-    }
+//#region Stave
+export const stave = css`
+    padding: 24px 0;
 `;
 //#endregion
