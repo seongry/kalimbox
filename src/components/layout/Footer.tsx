@@ -19,7 +19,9 @@ export const IntroLink: FC<IntroLinkProps> = ({ children, ...props }) => (
 );
 export const Footer: FC = () => (
     <section css={[footer]}>
-        Designed by <IntroLink href="#">@1000yjc</IntroLink> Developed by{" "}
+        Designed by{" "}
+        <IntroLink href="https://www.behance.net/1000yjc">@1000yjc</IntroLink>{" "}
+        Developed by{" "}
         <IntroLink href="https://github.com/seongry">@seongry</IntroLink>
     </section>
 );
