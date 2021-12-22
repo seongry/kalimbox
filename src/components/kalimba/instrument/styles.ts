@@ -125,7 +125,7 @@ interface KeyHeightProps {
 }
 export const keyHeight = ({ index, maxLength }: KeyHeightProps) => {
     const isOverHalf = maxLength / 2 <= index;
-    const temp = isOverHalf ? -index + maxLength + 1 : index + 1;
+    const temp = isOverHalf ? -index + maxLength : index + 1;
     return css`
         top: calc(-11.25rem + ${temp} * ${KEY_INFO.increasement});
     `;
