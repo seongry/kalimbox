@@ -1,5 +1,5 @@
-const path = require("path")
-const HtmlWebpackPlugin = require("html-webpack-plugin")
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
     mode: "development",
@@ -14,6 +14,12 @@ module.exports = {
             {
                 test: /\.css$/,
                 use: ["style-loader", "css-loader"],
+            },
+            {
+                test: /\.m?js/,
+                resolve: {
+                    fullySpecified: false,
+                },
             },
         ],
     },
@@ -37,4 +43,4 @@ module.exports = {
             template: "./dist/index.html",
         }),
     ],
-}
+};
