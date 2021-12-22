@@ -50,7 +50,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react", "npm:17.0.2"],
             ["react-dom", "virtual:18b385ac0fac9ad0e695caa2ee11d3ecb9de2515f7ddeb2abaf90def814b7bdd7a950b6704cd7ae27d0873e8004ed09fdb7caaeb332b09b7513fdb6fa5d5ffed#npm:17.0.2"],
             ["style-loader", "virtual:18b385ac0fac9ad0e695caa2ee11d3ecb9de2515f7ddeb2abaf90def814b7bdd7a950b6704cd7ae27d0873e8004ed09fdb7caaeb332b09b7513fdb6fa5d5ffed#npm:3.3.1"],
-            ["tone", "npm:14.8.32"],
+            ["tone", "npm:14.8.35"],
             ["ts-loader", "virtual:18b385ac0fac9ad0e695caa2ee11d3ecb9de2515f7ddeb2abaf90def814b7bdd7a950b6704cd7ae27d0873e8004ed09fdb7caaeb332b09b7513fdb6fa5d5ffed#npm:9.2.6"],
             ["typescript", "patch:typescript@npm%3A4.5.3#~builtin<compat/typescript>::version=4.5.3&hash=493e53"],
             ["webpack", "virtual:18b385ac0fac9ad0e695caa2ee11d3ecb9de2515f7ddeb2abaf90def814b7bdd7a950b6704cd7ae27d0873e8004ed09fdb7caaeb332b09b7513fdb6fa5d5ffed#npm:5.65.0"],
@@ -3266,11 +3266,11 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["automation-events", [
-        ["npm:4.0.10", {
-          "packageLocation": "./.yarn/cache/automation-events-npm-4.0.10-718caf85c7-62abed0589.zip/node_modules/automation-events/",
+        ["npm:4.0.11", {
+          "packageLocation": "./.yarn/cache/automation-events-npm-4.0.11-0da98e44db-c6502918ca.zip/node_modules/automation-events/",
           "packageDependencies": [
-            ["automation-events", "npm:4.0.10"],
-            ["@babel/runtime", "npm:7.16.3"],
+            ["automation-events", "npm:4.0.11"],
+            ["@babel/runtime", "npm:7.16.5"],
             ["tslib", "npm:2.3.1"]
           ],
           "linkType": "HARD",
@@ -5658,7 +5658,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react", "npm:17.0.2"],
             ["react-dom", "virtual:18b385ac0fac9ad0e695caa2ee11d3ecb9de2515f7ddeb2abaf90def814b7bdd7a950b6704cd7ae27d0873e8004ed09fdb7caaeb332b09b7513fdb6fa5d5ffed#npm:17.0.2"],
             ["style-loader", "virtual:18b385ac0fac9ad0e695caa2ee11d3ecb9de2515f7ddeb2abaf90def814b7bdd7a950b6704cd7ae27d0873e8004ed09fdb7caaeb332b09b7513fdb6fa5d5ffed#npm:3.3.1"],
-            ["tone", "npm:14.8.32"],
+            ["tone", "npm:14.8.35"],
             ["ts-loader", "virtual:18b385ac0fac9ad0e695caa2ee11d3ecb9de2515f7ddeb2abaf90def814b7bdd7a950b6704cd7ae27d0873e8004ed09fdb7caaeb332b09b7513fdb6fa5d5ffed#npm:9.2.6"],
             ["typescript", "patch:typescript@npm%3A4.5.3#~builtin<compat/typescript>::version=4.5.3&hash=493e53"],
             ["webpack", "virtual:18b385ac0fac9ad0e695caa2ee11d3ecb9de2515f7ddeb2abaf90def814b7bdd7a950b6704cd7ae27d0873e8004ed09fdb7caaeb332b09b7513fdb6fa5d5ffed#npm:5.65.0"],
@@ -7438,12 +7438,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["standardized-audio-context", [
-        ["npm:25.3.16", {
-          "packageLocation": "./.yarn/cache/standardized-audio-context-npm-25.3.16-2c126809d2-143cfcdde9.zip/node_modules/standardized-audio-context/",
+        ["npm:25.3.18", {
+          "packageLocation": "./.yarn/cache/standardized-audio-context-npm-25.3.18-90f40e8c85-70e3009716.zip/node_modules/standardized-audio-context/",
           "packageDependencies": [
-            ["standardized-audio-context", "npm:25.3.16"],
-            ["@babel/runtime", "npm:7.16.3"],
-            ["automation-events", "npm:4.0.10"],
+            ["standardized-audio-context", "npm:25.3.18"],
+            ["@babel/runtime", "npm:7.16.5"],
+            ["automation-events", "npm:4.0.11"],
             ["tslib", "npm:2.3.1"]
           ],
           "linkType": "HARD",
@@ -7708,11 +7708,11 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["tone", [
-        ["npm:14.8.32", {
-          "packageLocation": "./.yarn/cache/tone-npm-14.8.32-4bdb2361b1-cc3e73ee9e.zip/node_modules/tone/",
+        ["npm:14.8.35", {
+          "packageLocation": "./.yarn/cache/tone-npm-14.8.35-7541d984d2-8509279d24.zip/node_modules/tone/",
           "packageDependencies": [
-            ["tone", "npm:14.8.32"],
-            ["standardized-audio-context", "npm:25.3.16"],
+            ["tone", "npm:14.8.35"],
+            ["standardized-audio-context", "npm:25.3.18"],
             ["tslib", "npm:2.3.1"]
           ],
           "linkType": "HARD",
