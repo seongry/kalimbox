@@ -59,7 +59,8 @@ export const vibratingBar = css`
 const backgroundStyle = css`
     --key-middle-color: #dfe6f3;
     --key-gradient-color: rgba(160, 177, 209, 0);
-    --key-gradient-color2: rgba(160, 177, 209, 0.5);
+    --key-gradient-color-dark: rgba(160, 177, 209, 0.5);
+    --key-gradient-color-darker: rgba(160, 177, 209, 0.9);
 
     background: linear-gradient(
             180deg,
@@ -77,7 +78,7 @@ const backgroundStyle = css`
                 var(--colors-gray0) 0%,
                 var(--key-middle-color) 68.75%,
                 var(--key-gradient-color) 73.96%,
-                var(--key-gradient-color2) 100%
+                var(--key-gradient-color-dark) 100%
             ),
             #f0f5ff;
         box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
@@ -89,7 +90,7 @@ const backgroundStyle = css`
                 var(--colors-gray0) 0%,
                 var(--key-middle-color) 68.75%,
                 var(--key-gradient-color) 73.96%,
-                var(--key-gradient-color2) 100%
+                var(--key-gradient-color-darker) 100%
             ),
             #f0f5ff;
         box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.15);
