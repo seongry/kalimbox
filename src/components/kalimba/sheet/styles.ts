@@ -36,15 +36,21 @@ export const titleBox = css`
     padding-bottom: 1rem;
 `;
 export const titleInput = css`
-    border: none;
+    min-width: 220px;
+    max-width: 800px;
     border-bottom: 1px solid var(--colors-gray50);
+    padding-bottom: 8px;
+
     font-size: 1.2rem;
     font-weight: 500;
     text-align: center;
-    outline: none;
-    padding-bottom: 8px;
 
-    ::placeholder {
+    outline: none;
+    overflow: hidden;
+    white-space: nowrap;
+
+    :empty:before {
+        content: "악보 제목을 입력해주세요";
         color: var(--colors-gray100);
     }
 `;

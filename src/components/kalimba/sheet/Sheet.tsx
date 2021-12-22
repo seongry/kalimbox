@@ -19,11 +19,7 @@ export const Sheet: FC = () => {
     return (
         <div css={sheet({ isExtend })}>
             <div css={titleBox}>
-                <input
-                    css={titleInput}
-                    type="input"
-                    placeholder="악보 제목을 입력해주세요"
-                />
+                <span css={titleInput} role="input" contentEditable />
             </div>
             <div css={staveBox}>
                 <Stave />
