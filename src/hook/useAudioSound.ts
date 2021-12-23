@@ -1,6 +1,9 @@
 import * as Tone from "tone/build/esm";
 
 const initializeSynth = () => {
+    if (Tone.context.state !== "running") {
+        Tone.context.resume();
+    }
     const synth = new Tone.Synth();
     synth.oscillator.type = "sine";
     synth.toDestination();
