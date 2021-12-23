@@ -10,16 +10,21 @@ const parsedSheetState = selector({
     key: "parsedSheet",
     get: ({ get }) => {
         const originalSheet = get(sheetState);
-        //TODO: iterative한 형태로 return
-        return originalSheet;
+        console.log("::debug:: originSheet", originalSheet);
+        return originalSheet.split("/");
     },
 });
 
 export const sheetController = () => {
     const setSheet = useSetRecoilState(sheetState);
     const methods = {
-        addNote: ({ code }: Pick<KalimbaKeyBarsTypes, "code">) => {
-            setSheet((oldSheet) => `${oldSheet}${code}`);
+        addNote: ({ number, higher }: KalimbaKeyBarsTypes) => {
+            setSheet((oldSheet) => {
+                if (!oldSheet) {
+                    return `${number}${higher}`;
+                }
+                return `${oldSheet}/${number}${higher}`;
+            });
         },
     };
 
