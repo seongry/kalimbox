@@ -25,7 +25,7 @@ export const Key: FC<KeyProps> = ({ keyInfo, index, maxLength }) => {
 
     const handleOnClick = () => {
         playOneSound({ code });
-        addNote({ code });
+        addNote(keyInfo);
     };
 
     return (
