@@ -4,7 +4,7 @@ import { css } from "@emotion/react";
 interface SheetProps {
     isExtend: boolean;
 }
-export const sheet = ({ isExtend }: SheetProps) => css`
+export const sheetBox = ({ isExtend }: SheetProps) => css`
     width: 100%;
     height: 100%;
     max-height: 40%;

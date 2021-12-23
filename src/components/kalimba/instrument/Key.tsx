@@ -8,6 +8,7 @@ import {
     pianoCode,
 } from "@/components/kalimba/instrument/styles";
 import { KalimbaKeyBarsTypes } from "@/constants/KalimbaKey";
+import { sheetController } from "@/controllers/sheet";
 import { useAudioSound } from "@/hook/useAudioSound";
 import { jsx } from "@emotion/react";
 import { FC } from "react";
@@ -20,9 +21,11 @@ interface KeyProps {
 export const Key: FC<KeyProps> = ({ keyInfo, index, maxLength }) => {
     const { code } = keyInfo;
     const { onClick } = useAudioSound();
+    const { addNote } = sheetController();
 
     const handleOnClick = () => {
         onClick({ code });
+        addNote({ code });
     };
 
     return (
