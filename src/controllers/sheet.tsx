@@ -1,6 +1,8 @@
 import { KalimbaKeyBarsTypes } from "@/constants/KalimbaKey";
 import { atom, selector, useSetRecoilState } from "recoil";
 
+const SEPARATOR = "/" as const;
+const EMPTY_SPACE = "__" as const;
 const sheetState = atom({
     key: "sheet",
     default: "",
@@ -10,7 +12,7 @@ const parsedSheetState = selector({
     key: "parsedSheet",
     get: ({ get }) => {
         const originalSheet = get(sheetState);
-        return originalSheet.split("/");
+        return originalSheet.split(SEPARATOR);
     },
 });
 
@@ -24,6 +26,17 @@ export const sheetController = () => {
                 }
                 return `${oldSheet}/${number}${higher}`;
             });
+        },
+        addSpacebar: () => {
+            setSheet((oldSheet) => {
+                if (!oldSheet) {
+                    return EMPTY_SPACE;
+                }
+                return `${oldSheet}${SEPARATOR}${EMPTY_SPACE}`;
+            });
+        },
+        removeLastNote: () => {
+            //TODO: removeLastNote 구현하기
         },
     };
 
