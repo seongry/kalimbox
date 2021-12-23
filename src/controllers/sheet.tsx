@@ -10,7 +10,6 @@ const parsedSheetState = selector({
     key: "parsedSheet",
     get: ({ get }) => {
         const originalSheet = get(sheetState);
-        console.log("::debug:: originSheet", originalSheet);
         return originalSheet.split("/");
     },
 });
