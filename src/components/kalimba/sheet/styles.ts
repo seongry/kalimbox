@@ -128,6 +128,10 @@ const higherStyle = css`
 export const higher = (high: string) => css`
     position: relative;
 
+    ${high === "_" &&
+    css`
+        opacity: 0;
+    `}
     ${high === "1" &&
     css`
         :before {
