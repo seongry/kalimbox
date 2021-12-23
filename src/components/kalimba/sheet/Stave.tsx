@@ -1,12 +1,14 @@
 /** @jsx jsx */
 
 import { stave } from "@/components/kalimba/sheet/styles";
+import { sheetController } from "@/controllers/sheet";
 import { jsx } from "@emotion/react";
 import { FC } from "react";
+import { useRecoilValue } from "recoil";
 
-interface StaveProps {
-    sheet: string;
-}
-export const Stave: FC<StaveProps> = ({ sheet }) => (
-    <div css={stave}>{sheet}</div>
-);
+export const Stave: FC = () => {
+    const { sheetState } = sheetController();
+    const sheet = useRecoilValue(sheetState);
+
+    return <div css={stave}>{sheet}</div>;
+};

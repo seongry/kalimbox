@@ -1,22 +1,22 @@
 import { KalimbaKeyBarsTypes } from "@/constants/KalimbaKey";
-import { atom, selector, useRecoilValue, useSetRecoilState } from "recoil";
+import { atom, selector, useSetRecoilState } from "recoil";
 
-const sheet = atom({
+const sheetState = atom({
     key: "sheet",
     default: "",
 });
 
-const parsedSheet = selector({
+const parsedSheetState = selector({
     key: "parsedSheet",
     get: ({ get }) => {
-        const originalSheet = get(sheet);
+        const originalSheet = get(sheetState);
         //TODO: iterative한 형태로 return
         return originalSheet;
     },
 });
 
 export const sheetController = () => {
-    const setSheet = useSetRecoilState(sheet);
+    const setSheet = useSetRecoilState(sheetState);
     const methods = {
         addNote: ({ code }: Pick<KalimbaKeyBarsTypes, "code">) => {
             setSheet((oldSheet) => `${oldSheet}${code}`);
@@ -24,7 +24,7 @@ export const sheetController = () => {
     };
 
     return {
-        sheet: useRecoilValue(parsedSheet),
+        sheetState: parsedSheetState,
         ...methods,
     };
 };
