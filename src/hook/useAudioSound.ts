@@ -19,6 +19,6 @@ export const useAudioSound = () => {
     };
 
     return {
-        onClick: playOneSound,
+        playOneSound,
     };
 };

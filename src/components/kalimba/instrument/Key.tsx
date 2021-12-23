@@ -20,11 +20,11 @@ interface KeyProps {
 }
 export const Key: FC<KeyProps> = ({ keyInfo, index, maxLength }) => {
     const { code } = keyInfo;
-    const { onClick } = useAudioSound();
+    const { playOneSound } = useAudioSound();
     const { addNote } = sheetController();
 
     const handleOnClick = () => {
-        onClick({ code });
+        playOneSound({ code });
         addNote({ code });
     };
 
