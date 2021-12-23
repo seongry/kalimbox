@@ -112,5 +112,35 @@ export const staveBox = css`
 //#region Stave
 export const stave = css`
     padding: 24px 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+`;
+//#endregion
+
+//#region Note
+export const noteSpan = css``;
+const higherStyle = css`
+    position: absolute;
+    top: -1rem;
+    left: 25%;
+`;
+export const higher = (high: string) => css`
+    position: relative;
+
+    ${high === "1" &&
+    css`
+        :before {
+            content: ".";
+            ${higherStyle}
+        }
+    `}
+    ${high === "2" &&
+    css`
+        :before {
+            content: ":";
+            ${higherStyle}
+        }
+    `}
 `;
 //#endregion
