@@ -7,6 +7,7 @@ import { FC } from "react";
 interface NoteProps {
     note: string;
 }
-export const Note: FC<NoteProps> = ({ note }) => (
-    <span css={[noteSpan, higher(note[1])]}>{note[0]}</span>
-);
+export const Note: FC<NoteProps> = ({ note }) => {
+    const [code, high] = note;
+    return <span css={[noteSpan, higher(high)]}>{code}</span>;
+};
