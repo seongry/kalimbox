@@ -21,7 +21,7 @@ export const useGlobalKeydownEvent = () => {
         }
 
         if (e.code === SPECIAL_KEYBOARD_KEYS["Backspace"]) {
-            //removeLastNote();
+            removeLastNote();
         }
     };
     useEffect(() => {

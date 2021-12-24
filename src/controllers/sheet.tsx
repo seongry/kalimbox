@@ -37,7 +37,12 @@ export const sheetController = () => {
             });
         },
         removeLastNote: () => {
-            //TODO: removeLastNote 구현하기
+            setSheet(({ notes, ...rest }) => {
+                return {
+                    ...rest,
+                    notes: [...notes.slice(0, -1)],
+                };
+            });
         },
     };
 
