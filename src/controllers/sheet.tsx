@@ -20,7 +20,7 @@ export const sheetController = () => {
     const state = useRecoilValue(sheetState);
     const setSheet = useSetRecoilState(sheetState);
     const methods = {
-        addNote: ({ number, higher }: KalimbaKeyBarsTypes) => {
+        pushNote: ({ number, higher }: KalimbaKeyBarsTypes) => {
             setSheet(({ notes, ...rest }) => {
                 return {
                     ...rest,
@@ -28,7 +28,7 @@ export const sheetController = () => {
                 };
             });
         },
-        addSpacebar: () => {
+        pushSpacebar: () => {
             setSheet(({ notes, ...rest }) => {
                 return {
                     ...rest,

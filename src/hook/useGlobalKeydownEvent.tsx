@@ -7,7 +7,7 @@ enum SPECIAL_KEYBOARD_KEYS {
 }
 export const useGlobalKeydownEvent = () => {
     const { methods } = sheetController();
-    const { addSpacebar, removeLastNote } = methods;
+    const { pushSpacebar, removeLastNote } = methods;
     const handleKeydown = (e: globalThis.KeyboardEvent) => {
         if (
             !Object.values(SPECIAL_KEYBOARD_KEYS).includes(
@@ -17,7 +17,7 @@ export const useGlobalKeydownEvent = () => {
             return;
         }
         if (e.code === SPECIAL_KEYBOARD_KEYS["Space"]) {
-            addSpacebar();
+            pushSpacebar();
         }
 
         if (e.code === SPECIAL_KEYBOARD_KEYS["Backspace"]) {

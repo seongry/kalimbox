@@ -22,11 +22,11 @@ export const Key: FC<KeyProps> = ({ keyInfo, index, maxLength }) => {
     const { code } = keyInfo;
     const { playOneSound } = useAudioSound();
     const { methods } = sheetController();
-    const { addNote } = methods;
+    const { pushNote } = methods;
 
     const handleOnClick = () => {
         playOneSound({ code });
-        addNote(keyInfo);
+        pushNote(keyInfo);
     };
 
     return (
