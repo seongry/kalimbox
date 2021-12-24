@@ -8,9 +8,26 @@ import {
     saveButton,
     sheetSection,
 } from "@/components/kalimba/styles";
+import { sheetController } from "@/controllers/sheet";
 import { useGlobalKeydownEvent } from "@/hook/useGlobalKeydownEvent";
 import { jsx } from "@emotion/react";
 import { FC } from "react";
+import { useRecoilValue } from "recoil";
+
+const SaveButton: FC = () => {
+    const { sheetState, titleState, submitSheetForm } = sheetController();
+    const sheet = useRecoilValue(sheetState);
+    const title = useRecoilValue(titleState);
+    const handleSubmit = () => {
+        submitSheetForm({ title, notes: sheet.notes });
+    };
+
+    return (
+        <button css={saveButton} onClick={handleSubmit}>
+            save
+        </button>
+    );
+};
 
 export const Presentation: FC = () => {
     useGlobalKeydownEvent();
@@ -22,7 +39,7 @@ export const Presentation: FC = () => {
             </div>
             <div css={kalimbaSection}>
                 <Kalimba />
-                <button css={saveButton}>save</button>
+                <SaveButton />
             </div>
         </div>
     );
