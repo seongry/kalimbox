@@ -64,19 +64,20 @@ export const extendButtonBox = css`
 `;
 export const extendButton = css`
     width: 6rem;
-    font-size: 2rem;
+    font-size: 1.2rem;
     border: none;
     border-radius: 8px;
     outline: none;
     background-color: transparent;
     cursor: pointer;
+    color: var(--colors-gray100);
 
     :hover {
-        background-color: var(--colors-gray50);
+        color: var(--colors-gray200);
     }
 
     :active {
-        background-color: transparent;
+        color: var(--colors-gray200);
     }
 `;
 

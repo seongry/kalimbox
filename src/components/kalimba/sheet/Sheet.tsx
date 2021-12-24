@@ -26,7 +26,7 @@ export const Sheet: FC = () => {
             </div>
             <div css={extendButtonBox}>
                 <button css={extendButton} onClick={toggleExtend}>
-                    😊
+                    &#9660;
                 </button>
             </div>
         </div>
