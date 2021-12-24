@@ -113,17 +113,22 @@ export const staveBox = css`
 export const stave = css`
     padding: 24px 0;
     display: flex;
+    font-size: 16px;
     flex-direction: row;
     flex-wrap: wrap;
+    row-gap: 3rem;
 `;
 //#endregion
 
 //#region Note
-export const noteSpan = css``;
+export const noteSpan = css`
+    letter-spacing: 4px;
+`;
 const higherStyle = css`
     position: absolute;
     top: -1rem;
-    left: 25%;
+    width: 100%;
+    text-align: center;
 `;
 export const higher = (high: string) => css`
     position: relative;
