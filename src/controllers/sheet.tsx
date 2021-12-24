@@ -1,38 +1,39 @@
 import { KalimbaKeyBarsTypes } from "@/constants/KalimbaKey";
-import { atom, selector, useSetRecoilState } from "recoil";
+import { atom, useRecoilValue, useSetRecoilState } from "recoil";
 
 const SEPARATOR = "/" as const;
 const EMPTY_SPACE = "__" as const;
+
+interface SheetState {
+    title: string;
+    notes: string[];
+}
 const sheetState = atom({
     key: "sheet",
-    default: "",
-});
-
-const parsedSheetState = selector({
-    key: "parsedSheet",
-    get: ({ get }) => {
-        const originalSheet = get(sheetState);
-        return originalSheet.split(SEPARATOR);
-    },
+    default: {
+        title: "",
+        notes: [],
+    } as SheetState,
 });
 
 export const sheetController = () => {
+    const state = useRecoilValue(sheetState);
     const setSheet = useSetRecoilState(sheetState);
     const methods = {
         addNote: ({ number, higher }: KalimbaKeyBarsTypes) => {
-            setSheet((oldSheet) => {
-                if (!oldSheet) {
-                    return `${number}${higher}`;
-                }
-                return `${oldSheet}/${number}${higher}`;
+            setSheet(({ notes, ...rest }) => {
+                return {
+                    ...rest,
+                    notes: [...notes, `${number}${higher}`],
+                };
             });
         },
         addSpacebar: () => {
-            setSheet((oldSheet) => {
-                if (!oldSheet) {
-                    return EMPTY_SPACE;
-                }
-                return `${oldSheet}${SEPARATOR}${EMPTY_SPACE}`;
+            setSheet(({ notes, ...rest }) => {
+                return {
+                    ...rest,
+                    notes: [...notes, `${EMPTY_SPACE}`],
+                };
             });
         },
         removeLastNote: () => {
@@ -41,7 +42,7 @@ export const sheetController = () => {
     };
 
     return {
-        sheetState: parsedSheetState,
-        ...methods,
+        state: state,
+        methods: methods,
     };
 };
