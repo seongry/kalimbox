@@ -8,8 +8,12 @@ interface SheetState {
     title: string;
     notes: string[];
 }
+const titleState = atom({
+    key: "form-title",
+    default: "",
+});
 const sheetState = atom({
-    key: "sheet",
+    key: "form-sheet",
     default: {
         title: "",
         notes: [],
@@ -18,6 +22,7 @@ const sheetState = atom({
 
 export const sheetController = () => {
     const setSheet = useSetRecoilState(sheetState);
+    const setTitle = useSetRecoilState(titleState);
     const methods = {
         pushNote: ({ number, higher }: KalimbaKeyBarsTypes) => {
             setSheet(({ notes, ...rest }) => {
@@ -43,10 +48,14 @@ export const sheetController = () => {
                 };
             });
         },
+        updateTitle: (title: string) => {
+            setTitle(() => title);
+        },
     };
 
     return {
         sheetState,
+        titleState,
         methods: methods,
     };
 };
