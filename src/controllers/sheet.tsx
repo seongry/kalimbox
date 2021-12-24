@@ -47,7 +47,7 @@ const saveLocalStorage: SaveLocalStorage<SheetEntity[]> = ({
 };
 //#endregion
 
-//#region CONTRALLER
+//#region CONTROLLER
 export const sheetController = () => {
     const setSheet = useSetRecoilState(sheetState);
     const setTitle = useSetRecoilState(titleState);
