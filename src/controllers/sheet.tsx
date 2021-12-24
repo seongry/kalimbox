@@ -1,5 +1,5 @@
 import { KalimbaKeyBarsTypes } from "@/constants/KalimbaKey";
-import { atom, useRecoilValue, useSetRecoilState } from "recoil";
+import { atom, useSetRecoilState } from "recoil";
 
 const SEPARATOR = "/" as const;
 const EMPTY_SPACE = "__" as const;
@@ -17,7 +17,6 @@ const sheetState = atom({
 });
 
 export const sheetController = () => {
-    const state = useRecoilValue(sheetState);
     const setSheet = useSetRecoilState(sheetState);
     const methods = {
         pushNote: ({ number, higher }: KalimbaKeyBarsTypes) => {
@@ -47,7 +46,7 @@ export const sheetController = () => {
     };
 
     return {
-        state: state,
+        sheetState,
         methods: methods,
     };
 };
