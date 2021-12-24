@@ -21,6 +21,17 @@ module.exports = {
                     fullySpecified: false,
                 },
             },
+            {
+                test: /\.(png|svg)$/,
+                use: [
+                    {
+                        loader: "file-loader",
+                        options: {
+                            name: "assets/[name].[ext]?[hash]",
+                        },
+                    },
+                ],
+            },
         ],
     },
     devtool: "inline-source-map",
