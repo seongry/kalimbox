@@ -21,7 +21,8 @@ interface KeyProps {
 export const Key: FC<KeyProps> = ({ keyInfo, index, maxLength }) => {
     const { code } = keyInfo;
     const { playOneSound } = useAudioSound();
-    const { addNote } = sheetController();
+    const { methods } = sheetController();
+    const { addNote } = methods;
 
     const handleOnClick = () => {
         playOneSound({ code });
