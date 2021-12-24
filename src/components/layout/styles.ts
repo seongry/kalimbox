@@ -16,6 +16,21 @@ export const header = css`
     color: var(--colors-black);
     font-size: 16px;
 `;
+export const floatButton = css`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: auto;
+    margin: 16px;
+    font-size: 12px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
+`;
 //#endregion
 
 //#region Footer
