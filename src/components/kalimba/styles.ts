@@ -37,6 +37,7 @@ export const saveButton = css`
     outline: none;
     border: none;
     margin-bottom: 24px;
+    user-select: none;
 
     color: var(--colors-gray0);
     font-size: 18px;
