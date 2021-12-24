@@ -6,8 +6,7 @@ import { jsx } from "@emotion/react";
 import { ChangeEvent, FC, KeyboardEvent } from "react";
 
 export const TitleInput: FC = () => {
-    const { methods } = sheetController();
-    const { updateTitle } = methods;
+    const { updateTitle } = sheetController();
     const handleKeydown = (e: KeyboardEvent<HTMLSpanElement>) => {
         e.stopPropagation();
     };

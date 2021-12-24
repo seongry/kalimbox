@@ -56,6 +56,6 @@ export const sheetController = () => {
     return {
         sheetState,
         titleState,
-        methods: methods,
+        ...methods,
     };
 };
