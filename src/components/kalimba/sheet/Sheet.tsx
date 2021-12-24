@@ -7,8 +7,8 @@ import {
     sheetBox,
     staveBox,
     titleBox,
-    titleInput,
 } from "@/components/kalimba/sheet/styles";
+import { TitleInput } from "@/components/kalimba/sheet/TitleInput";
 import { jsx } from "@emotion/react";
 import { FC, useState } from "react";
 
@@ -19,7 +19,7 @@ export const Sheet: FC = () => {
     return (
         <div css={sheetBox({ isExtend })}>
             <div css={titleBox}>
-                <span css={titleInput} role="input" contentEditable />
+                <TitleInput />
             </div>
             <div css={staveBox}>
                 <Stave />
