@@ -16,15 +16,25 @@ export const header = css`
     color: var(--colors-black);
     font-size: 16px;
 `;
-export const floatButton = css`
+export const floatBox = css`
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     position: absolute;
     top: 0;
     left: 0;
     width: auto;
-    margin: 16px;
+    height: 100%;
+    padding-left: 8px;
+`;
+export const iconButton = css`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    padding: 8px;
     font-size: 12px;
     border: none;
     outline: none;
