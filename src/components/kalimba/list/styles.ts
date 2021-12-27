@@ -49,6 +49,7 @@ export const musicContents = css`
     flex: 1;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     padding: 8px 0 8px 16px;
 `;
 export const musicTitle = css`
