@@ -1,35 +1,49 @@
 /** @jsx jsx */
 
 import {
+    contents,
+    list,
     modalBox,
+    modalTitle,
     modalWrapper,
-    music,
-    musicContents,
     musicIcon,
-    musicTitle,
-    sheetList,
+    sheet,
+    title,
 } from "@/components/kalimba/list/styles";
+import { sheetListController } from "@/controllers/sheetList";
 import { jsx } from "@emotion/react";
-import { FC } from "react";
+import { FC, useEffect } from "react";
+import { useRecoilValue } from "recoil";
 
-const Music: FC = ({ children }) => (
-    <div css={music}>
+const SheetItem: FC = ({ children }) => (
+    <div css={sheet}>
         <div css={musicIcon} />
-        <div css={musicContents}>
-            <span css={musicTitle}>{children}</span>
+        <div css={contents}>
+            <span css={title}>{children}</span>
         </div>
     </div>
 );
 export const ListModal: FC = () => {
+    const { sheetListState, loadSheetList } = sheetListController();
+    const sheetList = useRecoilValue(sheetListState);
+
+    useEffect(() => {
+        loadSheetList();
+    }, []);
+
     return (
         <div css={modalWrapper}>
             <div css={modalBox}>
-                <h2>내 악보</h2>
-                <ul css={sheetList}>
-                    <li>
-                        <Music>하울의 움직이는 성</Music>
-                    </li>
-                </ul>
+                <h2 css={modalTitle}>내 악보</h2>
+                {sheetList.length > 0 && (
+                    <ul css={list}>
+                        {sheetList.map(({ title }, key) => (
+                            <li key={key}>
+                                <SheetItem>{title}</SheetItem>
+                            </li>
+                        ))}
+                    </ul>
+                )}
             </div>
         </div>
     );

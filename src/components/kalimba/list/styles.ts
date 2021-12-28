@@ -19,10 +19,13 @@ export const modalBox = css`
     max-width: 320px;
     background-color: var(--colors-gray0);
 
-    padding: 16px;
+    padding: 16px 8px;
+`;
+export const modalTitle = css`
+    padding: 0 8px;
 `;
 export const modalContents = css``;
-export const sheetList = css`
+export const list = css`
     list-style: none;
     padding: 0;
 
@@ -30,9 +33,15 @@ export const sheetList = css`
         padding-top: 8px;
     }
 `;
-export const music = css`
+export const sheet = css`
     display: flex;
-    padding: 8px 0;
+    padding: 8px;
+    border-radius: 4px;
+    cursor: pointer;
+
+    :hover {
+        background-color: var(--colors-gray50);
+    }
 `;
 export const musicIcon = css`
     border-radius: 4px;
@@ -45,14 +54,14 @@ export const musicIcon = css`
     background-repeat: no-repeat;
     background-position: center;
 `;
-export const musicContents = css`
+export const contents = css`
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding: 8px 0 8px 16px;
 `;
-export const musicTitle = css`
+export const title = css`
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
