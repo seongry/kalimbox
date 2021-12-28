@@ -1,4 +1,9 @@
 import { KalimbaKeyBarsTypes } from "@/constants/KalimbaKey";
+import {
+    fetchData,
+    LOCAL_STORAGE_KEY,
+    saveLocalStorage,
+} from "@/lib/localStorage";
 import { atom, useSetRecoilState } from "recoil";
 
 //#region CONSTANTS
@@ -7,7 +12,7 @@ const EMPTY_SPACE = "__" as const;
 //#endregion
 
 //#region INTERFACE
-interface SheetEntity {
+export interface SheetEntity {
     id: string;
     title: string;
     notes: string[];
@@ -28,23 +33,6 @@ const sheetState = atom({
         notes: [],
     } as SheetState,
 });
-//#endregion
-
-//#region FUNCTIONS
-type FetchData<T> = (key: string) => T;
-const fetchData: FetchData<SheetEntity[]> = (key) => {
-    const rawData = localStorage.getItem(key) ?? "";
-    const parsedData = rawData ? (JSON.parse(rawData) as SheetEntity[]) : [];
-
-    return parsedData;
-};
-type SaveLocalStorage<T> = (props: { key: string; newData: T }) => void;
-const saveLocalStorage: SaveLocalStorage<SheetEntity[]> = ({
-    key,
-    newData,
-}) => {
-    localStorage.setItem(key, JSON.stringify(newData));
-};
 //#endregion
 
 //#region CONTROLLER
@@ -83,9 +71,9 @@ export const sheetController = () => {
             if (!title || !notes) {
                 return;
             }
-            const key = "kalimbox-sheet-list";
-            const storedData = fetchData(key);
-            saveLocalStorage({
+            const key = LOCAL_STORAGE_KEY.sheetList;
+            const storedData = fetchData<SheetEntity[]>(key);
+            saveLocalStorage<SheetEntity[]>({
                 key,
                 newData: [
                     ...storedData,
