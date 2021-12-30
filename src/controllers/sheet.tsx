@@ -72,7 +72,7 @@ export const sheetController = () => {
             const key = LOCAL_STORAGE_KEY.sheetList;
             const storedData = fetchData<SheetEntity[]>(key);
 
-            if (id) {
+            if (id && storedData.find((item) => id === item.id)) {
                 saveLocalStorage<SheetEntity[]>({
                     key,
                     newData: [
