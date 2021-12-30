@@ -1,1 +1,3 @@
-# 🪗🎶 Kalimba Sheet Generator
+# Kalimbox
+
+칼림박스는 내 브라우저에 소중한 칼림바 악보를 모아주는 서비스입니다.
