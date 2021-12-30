@@ -1,5 +1,9 @@
-import { fetchData, LOCAL_STORAGE_KEY } from "@/lib/localStorage";
-import { atom, useSetRecoilState } from "recoil";
+import {
+    fetchData,
+    LOCAL_STORAGE_KEY,
+    saveLocalStorage,
+} from "@/lib/localStorage";
+import { atom, useRecoilState } from "recoil";
 import { SheetEntity } from "./sheet";
 
 //#region STATE
@@ -11,13 +15,22 @@ const sheetListState = atom({
 
 //#region CONTROLLER
 export const sheetListController = () => {
-    const setSheetList = useSetRecoilState(sheetListState);
+    const [sheetList, setSheetList] = useRecoilState(sheetListState);
     const methods = {
         loadSheetList: () => {
             const key = LOCAL_STORAGE_KEY.sheetList;
             const storedData = fetchData<SheetEntity[]>(key);
 
             setSheetList(storedData);
+        },
+        deleteSheet: (id: SheetEntity["id"]) => {
+            const key = LOCAL_STORAGE_KEY.sheetList;
+            const result = [...sheetList.filter((item) => id !== item.id)];
+            saveLocalStorage<SheetEntity[]>({
+                key,
+                newData: result,
+            });
+            setSheetList(result);
         },
     };
 
