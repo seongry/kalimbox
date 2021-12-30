@@ -1,6 +1,7 @@
 /** @jsx jsx */
 
 import { Kalimba } from "@/components/kalimba/instrument/Kalimba";
+import { ListModal } from "@/components/kalimba/list/ListModal";
 import { Sheet } from "@/components/kalimba/sheet/Sheet";
 import {
     contents,
@@ -8,6 +9,7 @@ import {
     saveButton,
     sheetSection,
 } from "@/components/kalimba/styles";
+import { settingController } from "@/controllers/setting";
 import { sheetController } from "@/controllers/sheet";
 import { useGlobalKeydownEvent } from "@/hook/useGlobalKeydownEvent";
 import { jsx } from "@emotion/react";
@@ -33,6 +35,7 @@ const SaveButton: FC = () => {
 };
 
 export const Presentation: FC = () => {
+    const { modalVisible } = settingController();
     useGlobalKeydownEvent();
 
     return (
@@ -46,6 +49,7 @@ export const Presentation: FC = () => {
                     <SaveButton />
                 </div>
             </div>
+            {modalVisible.sheetList && <ListModal />}
         </Fragment>
     );
 };
