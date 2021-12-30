@@ -64,19 +64,35 @@ export const sheetController = () => {
                 title,
             }));
         },
-        submitSheetForm: ({ title, notes }: Omit<SheetEntity, "id">) => {
+        submitSheetForm: (formData: SheetEntity) => {
+            const { id, title, notes } = formData;
             if (!title || !notes) {
                 return;
             }
             const key = LOCAL_STORAGE_KEY.sheetList;
             const storedData = fetchData<SheetEntity[]>(key);
-            saveLocalStorage<SheetEntity[]>({
-                key,
-                newData: [
-                    ...storedData,
-                    { id: new Date().toString(), title, notes },
-                ],
-            });
+
+            if (id) {
+                saveLocalStorage<SheetEntity[]>({
+                    key,
+                    newData: [
+                        ...storedData.map((item) => {
+                            if (id === item.id) {
+                                return formData;
+                            }
+                            return item;
+                        }),
+                    ],
+                });
+            } else {
+                saveLocalStorage<SheetEntity[]>({
+                    key,
+                    newData: [
+                        ...storedData,
+                        { id: new Date().toString(), title, notes },
+                    ],
+                });
+            }
         },
         loadSheetData: (sheetInfo: SheetEntity) => {
             setSheet(sheetInfo);
