@@ -38,6 +38,7 @@ export const titleBox = css`
 export const titleInput = css`
     min-width: 220px;
     max-width: 800px;
+    border: none;
     border-bottom: 1px solid var(--colors-gray50);
     padding-bottom: 8px;
 
@@ -46,11 +47,8 @@ export const titleInput = css`
     text-align: center;
 
     outline: none;
-    overflow: hidden;
-    white-space: nowrap;
 
-    :empty:before {
-        content: "악보 제목을 입력해주세요";
+    ::placeholder {
         color: var(--colors-gray100);
     }
 `;
