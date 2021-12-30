@@ -10,6 +10,8 @@ import {
 } from "@/components/kalimba/sheet/styles";
 import { TitleInput } from "@/components/kalimba/sheet/TitleInput";
 import { jsx } from "@emotion/react";
+import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { FC, useState } from "react";
 
 export const Sheet: FC = () => {
@@ -26,7 +28,7 @@ export const Sheet: FC = () => {
             </div>
             <div css={extendButtonBox}>
                 <button css={extendButton} onClick={toggleExtend}>
-                    &#9660;
+                    <FontAwesomeIcon icon={faChevronDown} />
                 </button>
             </div>
         </div>

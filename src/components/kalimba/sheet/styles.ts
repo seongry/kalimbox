@@ -62,7 +62,6 @@ export const extendButtonBox = css`
 `;
 export const extendButton = css`
     width: 6rem;
-    font-size: 1.2rem;
     border: none;
     border-radius: 8px;
     outline: none;
