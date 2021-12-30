@@ -13,32 +13,26 @@ const EMPTY_SPACE = "__" as const;
 
 //#region INTERFACE
 export interface SheetEntity {
-    id: string;
+    id: string | null;
     title: string;
     notes: string[];
-}
-interface SheetState {
-    notes: SheetEntity["notes"];
 }
 //#endregion
 
 //#region STATE
-const titleState = atom({
-    key: "form-title",
-    default: "",
-});
 const sheetState = atom({
     key: "form-sheet",
     default: {
+        id: null,
+        title: "",
         notes: [],
-    } as SheetState,
+    } as SheetEntity,
 });
 //#endregion
 
 //#region CONTROLLER
 export const sheetController = () => {
     const setSheet = useSetRecoilState(sheetState);
-    const setTitle = useSetRecoilState(titleState);
     const methods = {
         pushNote: ({ number, higher }: KalimbaKeyBarsTypes) => {
             setSheet(({ notes, ...rest }) => {
@@ -65,7 +59,10 @@ export const sheetController = () => {
             });
         },
         updateTitle: (title: string) => {
-            setTitle(() => title);
+            setSheet((old) => ({
+                ...old,
+                title,
+            }));
         },
         submitSheetForm: ({ title, notes }: Omit<SheetEntity, "id">) => {
             if (!title || !notes) {
@@ -81,11 +78,13 @@ export const sheetController = () => {
                 ],
             });
         },
+        loadSheetData: (sheetInfo: SheetEntity) => {
+            setSheet(sheetInfo);
+        },
     };
 
     return {
         sheetState,
-        titleState,
         ...methods,
     };
 };
