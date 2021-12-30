@@ -64,7 +64,7 @@ export const ListModal: FC = () => {
         <div css={modalWrapper}>
             <div css={modalBackground} onClick={handleOnClose} />
             <div css={modalBox}>
-                <h2 css={modalTitle}>내 악보</h2>
+                <h2 css={modalTitle}>내 악보상자</h2>
                 {sheetList.length > 0 && (
                     <ul css={list}>
                         {sheetList.map((item, key) => (

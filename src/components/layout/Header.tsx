@@ -17,7 +17,7 @@ const ListButton: FC = () => {
     return (
         <button css={iconButton} onClick={handleOnClick}>
             <img src={listIcon} alt="sheet_list_icon" />
-            <span>악보집</span>
+            <span>악보상자</span>
         </button>
     );
 };
