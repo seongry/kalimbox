@@ -45,6 +45,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@fortawesome/react-fontawesome", "virtual:ec03dfcf027c1aa0687d4d808006c5c72dc112247bb57bd771554027a31c2842f70c86aca05f193eecd82a70e9faa2553aa6771d9d055105643c8cc82fd3c856#npm:0.1.16"],
             ["@types/react", "npm:17.0.37"],
             ["@types/react-dom", "npm:17.0.11"],
+            ["babel-loader", "virtual:ec03dfcf027c1aa0687d4d808006c5c72dc112247bb57bd771554027a31c2842f70c86aca05f193eecd82a70e9faa2553aa6771d9d055105643c8cc82fd3c856#npm:8.2.3"],
             ["css-loader", "virtual:ec03dfcf027c1aa0687d4d808006c5c72dc112247bb57bd771554027a31c2842f70c86aca05f193eecd82a70e9faa2553aa6771d9d055105643c8cc82fd3c856#npm:6.5.1"],
             ["file-loader", "virtual:ec03dfcf027c1aa0687d4d808006c5c72dc112247bb57bd771554027a31c2842f70c86aca05f193eecd82a70e9faa2553aa6771d9d055105643c8cc82fd3c856#npm:6.2.0"],
             ["gh-pages", "npm:3.2.3"],
@@ -3155,10 +3156,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "HARD",
         }],
-        ["virtual:8704647575acf2f5b19fccfcb0acebacd9c94259ebe9afcfaf4c053812fd896f10775930ee5a5949e20833a61503d2cd22aa259cbe69729f6a192de4bf43dc00#npm:3.5.2", {
-          "packageLocation": "./.yarn/__virtual__/ajv-keywords-virtual-8b373d3ee8/0/cache/ajv-keywords-npm-3.5.2-0e391b70e2-7dc5e59316.zip/node_modules/ajv-keywords/",
+        ["virtual:f84d18c473fad3c01e1cf352f81ad13de804ca40da5bf6e752464a2e78dcb097ad579b06da5ff33a55ba9957fb9c74909b99fc5e215420a3f9b5dc87ad71363b#npm:3.5.2", {
+          "packageLocation": "./.yarn/__virtual__/ajv-keywords-virtual-11d24a6cf1/0/cache/ajv-keywords-npm-3.5.2-0e391b70e2-7dc5e59316.zip/node_modules/ajv-keywords/",
           "packageDependencies": [
-            ["ajv-keywords", "virtual:8704647575acf2f5b19fccfcb0acebacd9c94259ebe9afcfaf4c053812fd896f10775930ee5a5949e20833a61503d2cd22aa259cbe69729f6a192de4bf43dc00#npm:3.5.2"],
+            ["ajv-keywords", "virtual:f84d18c473fad3c01e1cf352f81ad13de804ca40da5bf6e752464a2e78dcb097ad579b06da5ff33a55ba9957fb9c74909b99fc5e215420a3f9b5dc87ad71363b#npm:3.5.2"],
             ["@types/ajv", null],
             ["ajv", "npm:6.12.6"]
           ],
@@ -3302,6 +3303,36 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["automation-events", "npm:4.0.11"],
             ["@babel/runtime", "npm:7.16.5"],
             ["tslib", "npm:2.3.1"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["babel-loader", [
+        ["npm:8.2.3", {
+          "packageLocation": "./.yarn/cache/babel-loader-npm-8.2.3-855681b984-78e1e1a919.zip/node_modules/babel-loader/",
+          "packageDependencies": [
+            ["babel-loader", "npm:8.2.3"]
+          ],
+          "linkType": "SOFT",
+        }],
+        ["virtual:ec03dfcf027c1aa0687d4d808006c5c72dc112247bb57bd771554027a31c2842f70c86aca05f193eecd82a70e9faa2553aa6771d9d055105643c8cc82fd3c856#npm:8.2.3", {
+          "packageLocation": "./.yarn/__virtual__/babel-loader-virtual-fe6cdf2bfb/0/cache/babel-loader-npm-8.2.3-855681b984-78e1e1a919.zip/node_modules/babel-loader/",
+          "packageDependencies": [
+            ["babel-loader", "virtual:ec03dfcf027c1aa0687d4d808006c5c72dc112247bb57bd771554027a31c2842f70c86aca05f193eecd82a70e9faa2553aa6771d9d055105643c8cc82fd3c856#npm:8.2.3"],
+            ["@babel/core", "npm:7.16.0"],
+            ["@types/babel__core", null],
+            ["@types/webpack", null],
+            ["find-cache-dir", "npm:3.3.2"],
+            ["loader-utils", "npm:1.4.0"],
+            ["make-dir", "npm:3.1.0"],
+            ["schema-utils", "npm:2.7.1"],
+            ["webpack", "virtual:ec03dfcf027c1aa0687d4d808006c5c72dc112247bb57bd771554027a31c2842f70c86aca05f193eecd82a70e9faa2553aa6771d9d055105643c8cc82fd3c856#npm:5.65.0"]
+          ],
+          "packagePeers": [
+            "@babel/core",
+            "@types/babel__core",
+            "@types/webpack",
+            "webpack"
           ],
           "linkType": "HARD",
         }]
@@ -5700,6 +5731,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["json5", [
+        ["npm:1.0.1", {
+          "packageLocation": "./.yarn/cache/json5-npm-1.0.1-647fc8794b-e76ea23dbb.zip/node_modules/json5/",
+          "packageDependencies": [
+            ["json5", "npm:1.0.1"],
+            ["minimist", "npm:1.2.5"]
+          ],
+          "linkType": "HARD",
+        }],
         ["npm:2.2.0", {
           "packageLocation": "./.yarn/cache/json5-npm-2.2.0-da49dc7cb5-e88fc5274b.zip/node_modules/json5/",
           "packageDependencies": [
@@ -5734,6 +5773,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@fortawesome/react-fontawesome", "virtual:ec03dfcf027c1aa0687d4d808006c5c72dc112247bb57bd771554027a31c2842f70c86aca05f193eecd82a70e9faa2553aa6771d9d055105643c8cc82fd3c856#npm:0.1.16"],
             ["@types/react", "npm:17.0.37"],
             ["@types/react-dom", "npm:17.0.11"],
+            ["babel-loader", "virtual:ec03dfcf027c1aa0687d4d808006c5c72dc112247bb57bd771554027a31c2842f70c86aca05f193eecd82a70e9faa2553aa6771d9d055105643c8cc82fd3c856#npm:8.2.3"],
             ["css-loader", "virtual:ec03dfcf027c1aa0687d4d808006c5c72dc112247bb57bd771554027a31c2842f70c86aca05f193eecd82a70e9faa2553aa6771d9d055105643c8cc82fd3c856#npm:6.5.1"],
             ["file-loader", "virtual:ec03dfcf027c1aa0687d4d808006c5c72dc112247bb57bd771554027a31c2842f70c86aca05f193eecd82a70e9faa2553aa6771d9d055105643c8cc82fd3c856#npm:6.2.0"],
             ["gh-pages", "npm:3.2.3"],
@@ -5780,6 +5820,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["loader-utils", [
+        ["npm:1.4.0", {
+          "packageLocation": "./.yarn/cache/loader-utils-npm-1.4.0-a56254a277-d150b15e7a.zip/node_modules/loader-utils/",
+          "packageDependencies": [
+            ["loader-utils", "npm:1.4.0"],
+            ["big.js", "npm:5.2.2"],
+            ["emojis-list", "npm:3.0.0"],
+            ["json5", "npm:1.0.1"]
+          ],
+          "linkType": "HARD",
+        }],
         ["npm:2.0.2", {
           "packageLocation": "./.yarn/cache/loader-utils-npm-2.0.2-c693411911-9078d1ed47.zip/node_modules/loader-utils/",
           "packageDependencies": [
@@ -7252,13 +7302,23 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["schema-utils", [
+        ["npm:2.7.1", {
+          "packageLocation": "./.yarn/cache/schema-utils-npm-2.7.1-f84d18c473-32c62fc9e2.zip/node_modules/schema-utils/",
+          "packageDependencies": [
+            ["schema-utils", "npm:2.7.1"],
+            ["@types/json-schema", "npm:7.0.9"],
+            ["ajv", "npm:6.12.6"],
+            ["ajv-keywords", "virtual:f84d18c473fad3c01e1cf352f81ad13de804ca40da5bf6e752464a2e78dcb097ad579b06da5ff33a55ba9957fb9c74909b99fc5e215420a3f9b5dc87ad71363b#npm:3.5.2"]
+          ],
+          "linkType": "HARD",
+        }],
         ["npm:3.1.1", {
           "packageLocation": "./.yarn/cache/schema-utils-npm-3.1.1-8704647575-fb73f3d759.zip/node_modules/schema-utils/",
           "packageDependencies": [
             ["schema-utils", "npm:3.1.1"],
             ["@types/json-schema", "npm:7.0.9"],
             ["ajv", "npm:6.12.6"],
-            ["ajv-keywords", "virtual:8704647575acf2f5b19fccfcb0acebacd9c94259ebe9afcfaf4c053812fd896f10775930ee5a5949e20833a61503d2cd22aa259cbe69729f6a192de4bf43dc00#npm:3.5.2"]
+            ["ajv-keywords", "virtual:f84d18c473fad3c01e1cf352f81ad13de804ca40da5bf6e752464a2e78dcb097ad579b06da5ff33a55ba9957fb9c74909b99fc5e215420a3f9b5dc87ad71363b#npm:3.5.2"]
           ],
           "linkType": "HARD",
         }],
