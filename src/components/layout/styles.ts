@@ -40,6 +40,7 @@ export const iconButton = css`
     outline: none;
     background-color: transparent;
     cursor: pointer;
+    color: var(--colors-black);
 `;
 //#endregion
 
