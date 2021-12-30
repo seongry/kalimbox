@@ -42,7 +42,6 @@ export const saveButton = css`
     color: var(--colors-gray0);
     font-size: 18px;
     font-weight: 500;
-    font-family: Roboto;
 
     :disabled {
         background-color: var(--colors-gray300);
