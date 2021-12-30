@@ -53,8 +53,17 @@ export const modalBox = css`
 
     animation: ${slideLeftToRight} 0.5s ease-in-out;
 `;
+export const hide = keyframes`
+    from, 50% {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+`;
 export const modalTitle = css`
     padding: 0 8px;
+    animation: ${hide} 0.5s ease-in;
 `;
 export const modalContents = css``;
 export const list = css`
