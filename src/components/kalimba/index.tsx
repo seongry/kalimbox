@@ -11,19 +11,22 @@ import {
 import { sheetController } from "@/controllers/sheet";
 import { useGlobalKeydownEvent } from "@/hook/useGlobalKeydownEvent";
 import { jsx } from "@emotion/react";
-import { FC } from "react";
+import { FC, Fragment } from "react";
 import { useRecoilValue } from "recoil";
 
 const SaveButton: FC = () => {
-    const { sheetState, titleState, submitSheetForm } = sheetController();
+    const { sheetState, submitSheetForm } = sheetController();
     const sheet = useRecoilValue(sheetState);
-    const title = useRecoilValue(titleState);
     const handleSubmit = () => {
-        submitSheetForm({ title, notes: sheet.notes });
+        submitSheetForm(sheet);
     };
 
     return (
-        <button css={saveButton} onClick={handleSubmit}>
+        <button
+            css={saveButton}
+            onClick={handleSubmit}
+            disabled={!sheet.title.trim() || !sheet.notes.length}
+        >
             save
         </button>
     );
@@ -33,14 +36,16 @@ export const Presentation: FC = () => {
     useGlobalKeydownEvent();
 
     return (
-        <div css={contents}>
-            <div css={sheetSection}>
-                <Sheet />
+        <Fragment>
+            <div css={contents}>
+                <div css={sheetSection}>
+                    <Sheet />
+                </div>
+                <div css={kalimbaSection}>
+                    <Kalimba />
+                    <SaveButton />
+                </div>
             </div>
-            <div css={kalimbaSection}>
-                <Kalimba />
-                <SaveButton />
-            </div>
-        </div>
+        </Fragment>
     );
 };
