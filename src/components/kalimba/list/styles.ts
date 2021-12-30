@@ -1,5 +1,5 @@
 import musicSymbolIcon from "@/asset/music_symbol_icon.svg";
-import { css } from "@emotion/react";
+import { css, keyframes } from "@emotion/react";
 
 //#region ListModal
 export const modalWrapper = css`
@@ -10,6 +10,15 @@ export const modalWrapper = css`
     left: 0;
     z-index: 10;
 `;
+const raise = keyframes`
+    from {
+        background-color: transparent;
+    }
+
+    to {
+        background-color: rgba(0, 0, 0, 0.25);
+    }
+`;
 export const modalBackground = css`
     width: 100%;
     height: 100%;
@@ -17,7 +26,20 @@ export const modalBackground = css`
     top: 0;
     left: 0;
     background-color: rgba(0, 0, 0, 0.25);
+    animation: ${raise} 0.1s ease-in-out;
     z-index: -1;
+`;
+
+const slideLeftToRight = keyframes`
+    from {
+        width: 0;
+        opacity: 0;
+    }
+
+    to {
+        width: 100%;
+        opacity: 1;
+    }
 `;
 export const modalBox = css`
     display: flex;
@@ -28,6 +50,8 @@ export const modalBox = css`
     background-color: var(--colors-gray0);
 
     padding: 16px 8px;
+
+    animation: ${slideLeftToRight} 0.5s ease-in-out;
 `;
 export const modalTitle = css`
     padding: 0 8px;
