@@ -1,4 +1,4 @@
-import { css } from "@emotion/react";
+import { css, keyframes } from "@emotion/react";
 
 //#region Sheet
 interface SheetProps {
@@ -122,8 +122,19 @@ export const stave = css`
 //#endregion
 
 //#region Note
+const underline = keyframes`
+    from, to {
+        border-bottom: 2px solid var(--colors-gray0);
+    }
+
+    50% {
+        border-bottom: 2px solid var(--colors-purple200);
+    }
+`;
 export const noteSpan = css`
     letter-spacing: 4px;
+    animation: ${underline} 0.5s ease-in-out;
+    text-align: center;
 `;
 const higherStyle = css`
     position: absolute;
@@ -136,7 +147,7 @@ export const higher = (high: string) => css`
 
     ${high === "_" &&
     css`
-        opacity: 0;
+        color: transparent;
     `}
     ${high === "1" &&
     css`
