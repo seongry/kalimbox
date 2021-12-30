@@ -76,4 +76,22 @@ export const title = css`
     overflow: hidden;
     text-overflow: ellipsis;
 `;
+export const deleteButtonBox = css`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`;
+export const deleteButton = css`
+    background: transparent;
+    padding: 4px;
+    color: var(--colors-purple200);
+    cursor: pointer;
+
+    outline: none;
+    border: none;
+
+    :hover {
+        color: var(--colors-purple300);
+    }
+`;
 //#endregion

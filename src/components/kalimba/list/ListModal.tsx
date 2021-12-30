@@ -2,6 +2,8 @@
 
 import {
     contents,
+    deleteButton,
+    deleteButtonBox,
     list,
     modalBackground,
     modalBox,
@@ -15,33 +17,48 @@ import { MODAL, settingController } from "@/controllers/setting";
 import { sheetController, SheetEntity } from "@/controllers/sheet";
 import { sheetListController } from "@/controllers/sheetList";
 import { jsx } from "@emotion/react";
-import { FC, useEffect } from "react";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FC, MouseEvent } from "react";
 import { useRecoilValue } from "recoil";
 
-const SheetItem: FC = ({ children }) => (
-    <div css={sheet}>
-        <div css={musicIcon} />
-        <div css={contents}>
-            <span css={title}>{children}</span>
+interface SheetItemProps {
+    info: SheetEntity;
+}
+const SheetItem: FC<SheetItemProps> = ({ info }) => {
+    const { closeModal } = settingController();
+    const { deleteSheet } = sheetListController();
+    const { loadSheetData } = sheetController();
+    const handleOnClick = () => {
+        loadSheetData(info);
+        closeModal(MODAL["SHEET_LIST"]);
+    };
+    const handleDelete = (e: MouseEvent<HTMLButtonElement>) => {
+        e.stopPropagation();
+        deleteSheet(info.id);
+    };
+
+    return (
+        <div css={sheet} onClick={handleOnClick}>
+            <div css={musicIcon} />
+            <div css={contents}>
+                <span css={title}>{info.title}</span>
+            </div>
+            <div css={deleteButtonBox}>
+                <button css={deleteButton} onClick={handleDelete}>
+                    <FontAwesomeIcon icon={faTrash} size="1x" />
+                </button>
+            </div>
         </div>
-    </div>
-);
+    );
+};
 export const ListModal: FC = () => {
     const { closeModal } = settingController();
-    const { sheetListState, loadSheetList } = sheetListController();
-    const { loadSheetData } = sheetController();
+    const { sheetListState } = sheetListController();
     const sheetList = useRecoilValue(sheetListState);
     const handleOnClose = () => {
         closeModal(MODAL["SHEET_LIST"]);
     };
-    const handleOnClick = (data: SheetEntity) => {
-        loadSheetData(data);
-        closeModal(MODAL["SHEET_LIST"]);
-    };
-
-    useEffect(() => {
-        loadSheetList();
-    }, []);
 
     return (
         <div css={modalWrapper}>
@@ -51,8 +68,8 @@ export const ListModal: FC = () => {
                 {sheetList.length > 0 && (
                     <ul css={list}>
                         {sheetList.map((item, key) => (
-                            <li key={key} onClick={() => handleOnClick(item)}>
-                                <SheetItem>{item.title}</SheetItem>
+                            <li key={key}>
+                                <SheetItem info={item} />
                             </li>
                         ))}
                     </ul>
