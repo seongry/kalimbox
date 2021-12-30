@@ -1,9 +1,10 @@
 import { atom, useRecoilState } from "recoil";
 
+export enum MODAL {
+    "SHEET_LIST" = "sheetList",
+}
 interface Setting {
-    modalVisible: {
-        sheetList: boolean;
-    };
+    modalVisible: Record<MODAL, boolean>;
 }
 //#region STATE
 const settingState = atom({
