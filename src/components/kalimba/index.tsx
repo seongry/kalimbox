@@ -6,6 +6,9 @@ import { Sheet } from "@/components/kalimba/sheet/Sheet";
 import {
     contents,
     kalimbaSection,
+    notificationBox,
+    notificationContents,
+    notificationWrapper,
     saveButton,
     sheetSection,
 } from "@/components/kalimba/styles";
@@ -13,10 +16,10 @@ import { settingController } from "@/controllers/setting";
 import { sheetController } from "@/controllers/sheet";
 import { useGlobalKeydownEvent } from "@/hook/useGlobalKeydownEvent";
 import { jsx } from "@emotion/react";
-import { FC, Fragment } from "react";
+import { Fragment } from "react";
 import { useRecoilValue } from "recoil";
 
-const SaveButton: FC = () => {
+const SaveButton = () => {
     const { sheetState, submitSheetForm } = sheetController();
     const sheet = useRecoilValue(sheetState);
     const handleSubmit = () => {
@@ -34,7 +37,16 @@ const SaveButton: FC = () => {
     );
 };
 
-export const Presentation: FC = () => {
+const SuccessNoti = () => (
+    <div css={notificationWrapper}>
+        <div css={notificationBox}>
+            <div css={notificationContents}>악보상자 안에 보관했어요</div>
+        </div>
+    </div>
+);
+
+export const Presentation = () => {
+    const { showNoti } = sheetController();
     const { modalVisible } = settingController();
     useGlobalKeydownEvent();
 
@@ -50,6 +62,7 @@ export const Presentation: FC = () => {
                 </div>
             </div>
             {modalVisible.sheetList && <ListModal />}
+            {showNoti && <SuccessNoti />}
         </Fragment>
     );
 };

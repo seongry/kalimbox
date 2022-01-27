@@ -1,4 +1,4 @@
-import { css } from "@emotion/react";
+import { css, keyframes } from "@emotion/react";
 
 export const contents = css`
     --color-kalimba-backround: #e0e9ff;
@@ -49,3 +49,52 @@ export const saveButton = css`
         cursor: default;
     }
 `;
+
+//#region SuccessNoti
+export const notificationWrapper = css`
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    z-index: 100;
+`;
+
+const show = keyframes`
+    from {
+        opacity: 0;
+        top: 12px;
+    }
+    
+    50% {
+        top: 12px;
+    }
+
+    to {
+        opacity: 1;
+        top: 0;
+    }
+`;
+
+export const notificationBox = css`
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+
+    animation: 0.8s ease-in ${show};
+`;
+export const notificationContents = css`
+    display: inline-block;
+    padding: 16px;
+    margin: 20vh auto 0;
+    border-radius: 4px;
+    background-color: var(--colors-gray0);
+    border: 1px solid var(--colors-gray50);
+    box-shadow: 1px 4px 8px rgb(6 16 41 / 13%);
+`;
+//#endregion
