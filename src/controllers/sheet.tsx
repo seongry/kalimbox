@@ -4,7 +4,7 @@ import {
     LOCAL_STORAGE_KEY,
     saveLocalStorage,
 } from "@/lib/localStorage";
-import { atom, useSetRecoilState } from "recoil";
+import { atom, useRecoilState, useSetRecoilState } from "recoil";
 
 //#region CONSTANTS
 const SEPARATOR = "/" as const;
@@ -28,10 +28,18 @@ const sheetState = atom({
         notes: [],
     } as SheetEntity,
 });
+
+const modalState = atom({
+    key: "sheet-modal",
+    default: {
+        success: false,
+    },
+});
 //#endregion
 
 //#region CONTROLLER
 export const sheetController = () => {
+    const [showNoti, setShowNoti] = useRecoilState(modalState);
     const setSheet = useSetRecoilState(sheetState);
     const methods = {
         pushNote: ({ number, higher }: KalimbaKeyBarsTypes) => {
@@ -93,6 +101,12 @@ export const sheetController = () => {
                     ],
                 });
             }
+
+            setShowNoti({ success: true });
+
+            setTimeout(() => {
+                setShowNoti({ success: false });
+            }, 1500);
         },
         loadSheetData: (sheetInfo: SheetEntity) => {
             setSheet(sheetInfo);
@@ -102,6 +116,7 @@ export const sheetController = () => {
     return {
         sheetState,
         ...methods,
+        showNoti: showNoti.success,
     };
 };
 //#endregion
