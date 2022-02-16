@@ -56,11 +56,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["gh-pages", "npm:3.2.3"],
             ["html-webpack-plugin", "virtual:ec03dfcf027c1aa0687d4d808006c5c72dc112247bb57bd771554027a31c2842f70c86aca05f193eecd82a70e9faa2553aa6771d9d055105643c8cc82fd3c856#npm:5.5.0"],
             ["jest", "virtual:ec03dfcf027c1aa0687d4d808006c5c72dc112247bb57bd771554027a31c2842f70c86aca05f193eecd82a70e9faa2553aa6771d9d055105643c8cc82fd3c856#npm:27.4.7"],
+            ["jest-transform-stub", "npm:2.0.0"],
             ["react", "npm:17.0.2"],
             ["react-dom", "virtual:ec03dfcf027c1aa0687d4d808006c5c72dc112247bb57bd771554027a31c2842f70c86aca05f193eecd82a70e9faa2553aa6771d9d055105643c8cc82fd3c856#npm:17.0.2"],
             ["recoil", "virtual:ec03dfcf027c1aa0687d4d808006c5c72dc112247bb57bd771554027a31c2842f70c86aca05f193eecd82a70e9faa2553aa6771d9d055105643c8cc82fd3c856#npm:0.5.2"],
             ["style-loader", "virtual:ec03dfcf027c1aa0687d4d808006c5c72dc112247bb57bd771554027a31c2842f70c86aca05f193eecd82a70e9faa2553aa6771d9d055105643c8cc82fd3c856#npm:3.3.1"],
-            ["tone", "npm:14.8.35"],
+            ["tone", "npm:14.8.37"],
             ["ts-loader", "virtual:ec03dfcf027c1aa0687d4d808006c5c72dc112247bb57bd771554027a31c2842f70c86aca05f193eecd82a70e9faa2553aa6771d9d055105643c8cc82fd3c856#npm:9.2.6"],
             ["typescript", "patch:typescript@npm%3A4.5.3#~builtin<compat/typescript>::version=4.5.3&hash=493e53"],
             ["webpack", "virtual:ec03dfcf027c1aa0687d4d808006c5c72dc112247bb57bd771554027a31c2842f70c86aca05f193eecd82a70e9faa2553aa6771d9d055105643c8cc82fd3c856#npm:5.65.0"],
@@ -4479,11 +4480,11 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["automation-events", [
-        ["npm:4.0.11", {
-          "packageLocation": "./.yarn/cache/automation-events-npm-4.0.11-0da98e44db-c6502918ca.zip/node_modules/automation-events/",
+        ["npm:4.0.14", {
+          "packageLocation": "./.yarn/cache/automation-events-npm-4.0.14-e95e0e8da9-9af742ea85.zip/node_modules/automation-events/",
           "packageDependencies": [
-            ["automation-events", "npm:4.0.11"],
-            ["@babel/runtime", "npm:7.16.5"],
+            ["automation-events", "npm:4.0.14"],
+            ["@babel/runtime", "npm:7.17.2"],
             ["tslib", "npm:2.3.1"]
           ],
           "linkType": "HARD",
@@ -7982,6 +7983,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["jest-transform-stub", [
+        ["npm:2.0.0", {
+          "packageLocation": "./.yarn/cache/jest-transform-stub-npm-2.0.0-be9c28dcec-c46134257e.zip/node_modules/jest-transform-stub/",
+          "packageDependencies": [
+            ["jest-transform-stub", "npm:2.0.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["jest-util", [
         ["npm:27.4.2", {
           "packageLocation": "./.yarn/cache/jest-util-npm-27.4.2-2662ef0bf0-bcf16881af.zip/node_modules/jest-util/",
@@ -8223,11 +8233,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["gh-pages", "npm:3.2.3"],
             ["html-webpack-plugin", "virtual:ec03dfcf027c1aa0687d4d808006c5c72dc112247bb57bd771554027a31c2842f70c86aca05f193eecd82a70e9faa2553aa6771d9d055105643c8cc82fd3c856#npm:5.5.0"],
             ["jest", "virtual:ec03dfcf027c1aa0687d4d808006c5c72dc112247bb57bd771554027a31c2842f70c86aca05f193eecd82a70e9faa2553aa6771d9d055105643c8cc82fd3c856#npm:27.4.7"],
+            ["jest-transform-stub", "npm:2.0.0"],
             ["react", "npm:17.0.2"],
             ["react-dom", "virtual:ec03dfcf027c1aa0687d4d808006c5c72dc112247bb57bd771554027a31c2842f70c86aca05f193eecd82a70e9faa2553aa6771d9d055105643c8cc82fd3c856#npm:17.0.2"],
             ["recoil", "virtual:ec03dfcf027c1aa0687d4d808006c5c72dc112247bb57bd771554027a31c2842f70c86aca05f193eecd82a70e9faa2553aa6771d9d055105643c8cc82fd3c856#npm:0.5.2"],
             ["style-loader", "virtual:ec03dfcf027c1aa0687d4d808006c5c72dc112247bb57bd771554027a31c2842f70c86aca05f193eecd82a70e9faa2553aa6771d9d055105643c8cc82fd3c856#npm:3.3.1"],
-            ["tone", "npm:14.8.35"],
+            ["tone", "npm:14.8.37"],
             ["ts-loader", "virtual:ec03dfcf027c1aa0687d4d808006c5c72dc112247bb57bd771554027a31c2842f70c86aca05f193eecd82a70e9faa2553aa6771d9d055105643c8cc82fd3c856#npm:9.2.6"],
             ["typescript", "patch:typescript@npm%3A4.5.3#~builtin<compat/typescript>::version=4.5.3&hash=493e53"],
             ["webpack", "virtual:ec03dfcf027c1aa0687d4d808006c5c72dc112247bb57bd771554027a31c2842f70c86aca05f193eecd82a70e9faa2553aa6771d9d055105643c8cc82fd3c856#npm:5.65.0"],
@@ -10335,12 +10346,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["standardized-audio-context", [
-        ["npm:25.3.18", {
-          "packageLocation": "./.yarn/cache/standardized-audio-context-npm-25.3.18-90f40e8c85-70e3009716.zip/node_modules/standardized-audio-context/",
+        ["npm:25.3.21", {
+          "packageLocation": "./.yarn/cache/standardized-audio-context-npm-25.3.21-7699e9da50-9fc3fcf451.zip/node_modules/standardized-audio-context/",
           "packageDependencies": [
-            ["standardized-audio-context", "npm:25.3.18"],
-            ["@babel/runtime", "npm:7.16.5"],
-            ["automation-events", "npm:4.0.11"],
+            ["standardized-audio-context", "npm:25.3.21"],
+            ["@babel/runtime", "npm:7.17.2"],
+            ["automation-events", "npm:4.0.14"],
             ["tslib", "npm:2.3.1"]
           ],
           "linkType": "HARD",
@@ -10705,11 +10716,11 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["tone", [
-        ["npm:14.8.35", {
-          "packageLocation": "./.yarn/cache/tone-npm-14.8.35-7541d984d2-8509279d24.zip/node_modules/tone/",
+        ["npm:14.8.37", {
+          "packageLocation": "./.yarn/cache/tone-npm-14.8.37-cf515355b0-2c46216a30.zip/node_modules/tone/",
           "packageDependencies": [
-            ["tone", "npm:14.8.35"],
-            ["standardized-audio-context", "npm:25.3.18"],
+            ["tone", "npm:14.8.37"],
+            ["standardized-audio-context", "npm:25.3.21"],
             ["tslib", "npm:2.3.1"]
           ],
           "linkType": "HARD",
