@@ -1,10 +1,10 @@
-import * as Tone from "tone/build/esm";
+import { context, Synth } from "tone/build/esm";
 
 const initializeSynth = () => {
-    if (Tone.context.state !== "running") {
-        Tone.context.resume();
+    if (context.state !== "running") {
+        context.resume();
     }
-    const synth = new Tone.Synth();
+    const synth = new Synth();
     synth.oscillator.type = "sine";
     synth.toDestination();
 
