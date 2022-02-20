@@ -46,6 +46,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@fortawesome/react-fontawesome", "virtual:ec03dfcf027c1aa0687d4d808006c5c72dc112247bb57bd771554027a31c2842f70c86aca05f193eecd82a70e9faa2553aa6771d9d055105643c8cc82fd3c856#npm:0.1.16"],
             ["@testing-library/jest-dom", "npm:5.16.2"],
             ["@testing-library/react", "virtual:ec03dfcf027c1aa0687d4d808006c5c72dc112247bb57bd771554027a31c2842f70c86aca05f193eecd82a70e9faa2553aa6771d9d055105643c8cc82fd3c856#npm:12.1.2"],
+            ["@testing-library/user-event", "virtual:ec03dfcf027c1aa0687d4d808006c5c72dc112247bb57bd771554027a31c2842f70c86aca05f193eecd82a70e9faa2553aa6771d9d055105643c8cc82fd3c856#npm:13.5.0"],
             ["@types/jest", "npm:27.4.0"],
             ["@types/react", "npm:17.0.37"],
             ["@types/react-dom", "npm:17.0.11"],
@@ -3530,6 +3531,29 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             "@types/react",
             "react-dom",
             "react"
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["@testing-library/user-event", [
+        ["npm:13.5.0", {
+          "packageLocation": "./.yarn/cache/@testing-library-user-event-npm-13.5.0-1ff89b703a-16319de685.zip/node_modules/@testing-library/user-event/",
+          "packageDependencies": [
+            ["@testing-library/user-event", "npm:13.5.0"]
+          ],
+          "linkType": "SOFT",
+        }],
+        ["virtual:ec03dfcf027c1aa0687d4d808006c5c72dc112247bb57bd771554027a31c2842f70c86aca05f193eecd82a70e9faa2553aa6771d9d055105643c8cc82fd3c856#npm:13.5.0", {
+          "packageLocation": "./.yarn/__virtual__/@testing-library-user-event-virtual-3a1ba469ab/0/cache/@testing-library-user-event-npm-13.5.0-1ff89b703a-16319de685.zip/node_modules/@testing-library/user-event/",
+          "packageDependencies": [
+            ["@testing-library/user-event", "virtual:ec03dfcf027c1aa0687d4d808006c5c72dc112247bb57bd771554027a31c2842f70c86aca05f193eecd82a70e9faa2553aa6771d9d055105643c8cc82fd3c856#npm:13.5.0"],
+            ["@babel/runtime", "npm:7.16.7"],
+            ["@testing-library/dom", null],
+            ["@types/testing-library__dom", null]
+          ],
+          "packagePeers": [
+            "@testing-library/dom",
+            "@types/testing-library__dom"
           ],
           "linkType": "HARD",
         }]
@@ -8224,6 +8248,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@fortawesome/react-fontawesome", "virtual:ec03dfcf027c1aa0687d4d808006c5c72dc112247bb57bd771554027a31c2842f70c86aca05f193eecd82a70e9faa2553aa6771d9d055105643c8cc82fd3c856#npm:0.1.16"],
             ["@testing-library/jest-dom", "npm:5.16.2"],
             ["@testing-library/react", "virtual:ec03dfcf027c1aa0687d4d808006c5c72dc112247bb57bd771554027a31c2842f70c86aca05f193eecd82a70e9faa2553aa6771d9d055105643c8cc82fd3c856#npm:12.1.2"],
+            ["@testing-library/user-event", "virtual:ec03dfcf027c1aa0687d4d808006c5c72dc112247bb57bd771554027a31c2842f70c86aca05f193eecd82a70e9faa2553aa6771d9d055105643c8cc82fd3c856#npm:13.5.0"],
             ["@types/jest", "npm:27.4.0"],
             ["@types/react", "npm:17.0.37"],
             ["@types/react-dom", "npm:17.0.11"],
