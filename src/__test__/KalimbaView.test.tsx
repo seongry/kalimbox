@@ -1,6 +1,5 @@
 import { KalimbaView } from "@/views/Kalimba";
-import "@testing-library/jest-dom";
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import React from "react";
 import { RecoilRoot } from "recoil";
 
@@ -31,6 +30,17 @@ describe("Kalimba view", () => {
     });
 
     it("필수 구성요소 visibility", () => {
-        expect(false).toBeTruthy();
+        const SheetBoxButton = screen.getByRole("button", {
+            name: /악보상자/i,
+        });
+        const SheetTitle =
+            screen.getByPlaceholderText(/악보 제목을 입력해주세요/i);
+        const Kalimba = screen.getByTestId("kalimba-instrument");
+        const SaveButton = screen.getByRole("button", { name: /save/i });
+
+        expect(SheetBoxButton).toBeInTheDocument();
+        expect(SheetTitle).toBeInTheDocument();
+        expect(Kalimba).toBeInTheDocument();
+        expect(SaveButton).toBeInTheDocument();
     });
 });

@@ -11,7 +11,7 @@ import { jsx } from "@emotion/react";
 import { FC } from "react";
 
 export const Kalimba: FC = () => (
-    <div css={kalimbaBody}>
+    <div css={kalimbaBody} data-testid="kalimba-instrument">
         <div css={vibratingBar} />
         <div css={keys}>
             {C_KEY.map((item, key) => (
