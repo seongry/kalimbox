@@ -80,9 +80,29 @@ describe("Kalimba 동작 테스트", () => {
 
         expect(Sheet).toHaveStyle(maxHeightStyle);
     });
+
+    it("백스페이스키를 누르면 입력된 노트 하나를 지운다", () => {
+        const Keys = screen.getAllByTestId("kailimba-key");
+        const Sheet = screen.getByTestId("sheet");
+
+        userEvent.click(Keys[0]); //2
+        userEvent.click(Keys[0]); //2
+
+        userEvent.keyboard("{Backspace}");
+
+        expect(Sheet).toHaveTextContent("2");
+    });
+
+    it("스페이스바를 누르면 공백문자를 하나 입력한다", () => {
+        const Keys = screen.getAllByTestId("kailimba-key");
+        const Sheet = screen.getByTestId("sheet");
+
+        userEvent.keyboard(" ");
+
+        expect(Sheet).toHaveTextContent("_");
+    });
 });
 
 describe("악보 리스트", () => {
-    it.todo("저장된 악보가 없다면, 메세지를 출력한다");
     it.todo("저장된 악보가 있다면, 악보를 리스트업한다");
 });
