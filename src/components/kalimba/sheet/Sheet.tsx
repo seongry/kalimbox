@@ -19,7 +19,7 @@ export const Sheet: FC = () => {
     const toggleExtend = () => setIsExtend(!isExtend);
 
     return (
-        <div css={sheetBox({ isExtend })}>
+        <div css={sheetBox({ isExtend })} data-testid="sheet">
             <div css={titleBox}>
                 <TitleInput />
             </div>
@@ -28,7 +28,7 @@ export const Sheet: FC = () => {
             </div>
             <div css={extendButtonBox}>
                 <button css={extendButton} onClick={toggleExtend}>
-                    <FontAwesomeIcon icon={faChevronDown} />
+                    <FontAwesomeIcon icon={faChevronDown} title="extend" />
                 </button>
             </div>
         </div>
