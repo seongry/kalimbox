@@ -44,6 +44,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@fortawesome/fontawesome-svg-core", "npm:1.2.36"],
             ["@fortawesome/free-solid-svg-icons", "npm:5.15.4"],
             ["@fortawesome/react-fontawesome", "virtual:ec03dfcf027c1aa0687d4d808006c5c72dc112247bb57bd771554027a31c2842f70c86aca05f193eecd82a70e9faa2553aa6771d9d055105643c8cc82fd3c856#npm:0.1.16"],
+            ["@testing-library/dom", "npm:8.11.3"],
             ["@testing-library/jest-dom", "npm:5.16.2"],
             ["@testing-library/react", "virtual:ec03dfcf027c1aa0687d4d808006c5c72dc112247bb57bd771554027a31c2842f70c86aca05f193eecd82a70e9faa2553aa6771d9d055105643c8cc82fd3c856#npm:12.1.2"],
             ["@testing-library/user-event", "virtual:ec03dfcf027c1aa0687d4d808006c5c72dc112247bb57bd771554027a31c2842f70c86aca05f193eecd82a70e9faa2553aa6771d9d055105643c8cc82fd3c856#npm:13.5.0"],
@@ -3548,7 +3549,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["@testing-library/user-event", "virtual:ec03dfcf027c1aa0687d4d808006c5c72dc112247bb57bd771554027a31c2842f70c86aca05f193eecd82a70e9faa2553aa6771d9d055105643c8cc82fd3c856#npm:13.5.0"],
             ["@babel/runtime", "npm:7.16.7"],
-            ["@testing-library/dom", null],
+            ["@testing-library/dom", "npm:8.11.3"],
             ["@types/testing-library__dom", null]
           ],
           "packagePeers": [
@@ -8246,6 +8247,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@fortawesome/fontawesome-svg-core", "npm:1.2.36"],
             ["@fortawesome/free-solid-svg-icons", "npm:5.15.4"],
             ["@fortawesome/react-fontawesome", "virtual:ec03dfcf027c1aa0687d4d808006c5c72dc112247bb57bd771554027a31c2842f70c86aca05f193eecd82a70e9faa2553aa6771d9d055105643c8cc82fd3c856#npm:0.1.16"],
+            ["@testing-library/dom", "npm:8.11.3"],
             ["@testing-library/jest-dom", "npm:5.16.2"],
             ["@testing-library/react", "virtual:ec03dfcf027c1aa0687d4d808006c5c72dc112247bb57bd771554027a31c2842f70c86aca05f193eecd82a70e9faa2553aa6771d9d055105643c8cc82fd3c856#npm:12.1.2"],
             ["@testing-library/user-event", "virtual:ec03dfcf027c1aa0687d4d808006c5c72dc112247bb57bd771554027a31c2842f70c86aca05f193eecd82a70e9faa2553aa6771d9d055105643c8cc82fd3c856#npm:13.5.0"],
