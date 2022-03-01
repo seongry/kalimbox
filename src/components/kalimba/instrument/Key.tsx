@@ -30,6 +30,7 @@ export const Key: FC<KeyProps> = ({ keyInfo, index, maxLength }) => {
 
     return (
         <div
+            data-testid="kailimba-key"
             css={[key, keyHeight({ index, maxLength })]}
             onClick={handleOnClick}
         >
