@@ -70,9 +70,10 @@ export const sheet = css`
     padding: 8px;
     border-radius: 4px;
     cursor: pointer;
+    transition: box-shadow 0.3s;
 
     :hover {
-        background-color: var(--colors-gray50);
+        box-shadow: 1px 4px 16px var(--colors-dark_gray);
     }
 `;
 export const musicIcon = css`
