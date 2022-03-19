@@ -30,40 +30,31 @@ export const modalBackground = css`
     z-index: -1;
 `;
 
-const slideLeftToRight = keyframes`
+const slideLeftToRight = (width: number) =>
+    keyframes`
     from {
-        width: 0;
-        opacity: 0;
+        transform: translateX(${-1 * width}px);
     }
 
     to {
-        width: 100%;
-        opacity: 1;
+        transform: translateX(0);
     }
 `;
+const widthSize = 320;
 export const modalBox = css`
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: ${widthSize}px;
     height: 100%;
-    max-width: 320px;
     background-color: var(--colors-gray0);
 
     padding: 16px 8px;
 
-    animation: ${slideLeftToRight} 0.5s ease-in-out;
+    animation: ${slideLeftToRight(widthSize)} 0.3s ease-in-out;
 `;
-export const hide = keyframes`
-    from, 50% {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-`;
+
 export const modalTitle = css`
     padding: 0 8px;
-    animation: ${hide} 0.5s ease-in;
 `;
 export const modalContents = css``;
 export const list = css`
